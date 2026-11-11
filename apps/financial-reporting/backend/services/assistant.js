@@ -125,6 +125,7 @@ Return ONLY JSON: {"verdict": "Strong" | "Stable" | "Cautious" | "Concerning",
 Cover, in this order where the data allows: scale (total assets / equity), profitability (revenue, PAT, margin), liquidity (current ratio, cash), leverage (borrowings, debt-to-equity), cash flow.
 Use ₹ millions with the period (e.g. "₹13,820.2 Mn at 30 Sep 2025").
 PERIODS: check the period headers. If the current P&L / cash-flow period is shorter than the comparative (e.g. 6 months vs a full year), never state growth or decline between them as if comparable: compare balance-sheet items (point in time), or annualise and say "annualised".
+WORDING: for revenue, profit, PAT, margins and cash flow, describe the level for the period ("PAT was ₹80.7 Mn for the six months"), never "fell", "rose", "declined", "grew", "dropped" or "increased" unless both periods are the same length. Balance-sheet items may be compared between dates.
 Only figures from the documents; compute ratios yourself if needed. No filler words, no markdown.`;
 
 export async function summary({ refresh = false } = {}) {
