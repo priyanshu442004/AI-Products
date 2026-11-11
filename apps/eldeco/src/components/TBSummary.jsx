@@ -218,6 +218,9 @@ const TBSummary = () => {
   useEffect(() => {
     const checkFolder = async () => {
       try {
+        // ask whether a TB exists first, so an empty folder isn't reported as a failed request
+        const check = await fetch(apiUrl("/api/trial-balance/check-upload")).then((r) => r.json()).catch(() => null);
+        if (!check || check.isEmpty) return;
         const res = await fetch(
           apiUrl("/api/trial-balance/preview")
         );
