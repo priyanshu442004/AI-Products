@@ -51,6 +51,7 @@ report/.venv/bin/pip install -q -r report/requirements.txt
 
 echo "→ Publishing static files to $PUBLIC"
 STAGE="$(mktemp -d)"
+chmod 755 "$STAGE"   # mktemp creates 0700; nginx (www-data) must be able to read the published tree
 cp -r "$ROOT/web/dist/." "$STAGE/"
 mkdir -p "$STAGE/app/eldeco"
 cp -r "$ROOT/apps/eldeco/dist/." "$STAGE/app/eldeco/"
@@ -60,7 +61,7 @@ for app in virtual-cfo invoice-automation; do
   mkdir -p "$STAGE/app/$app" && cp -r "$ROOT/apps/$app/frontend/dist/." "$STAGE/app/$app/"
 done
 sudo mkdir -p "$PUBLIC"
-sudo rsync -a --delete "$STAGE/" "$PUBLIC/"
+sudo rsync -a --delete --chmod=D755,F644 "$STAGE/" "$PUBLIC/"
 rm -rf "$STAGE"
 
 echo "→ Backends"
