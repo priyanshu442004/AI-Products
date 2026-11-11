@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 import { EASE } from "../ui";
 
 /* Coded UI previews of the four portal products. Every figure is real output from
-   the products' own sample runs (Eldeco shows ledger counts only, no client amounts). */
+   the products' own sample runs (Financial Reporting shows ledger counts only, no client amounts). */
 
 const inView = { initial: "hidden", whileInView: "show", viewport: { once: true, margin: "-15%" } };
 const row = (i) => ({ hidden: { opacity: 0, x: -10 }, show: { opacity: 1, x: 0, transition: { delay: 0.1 + i * 0.08, duration: 0.6, ease: EASE } } });
@@ -20,7 +20,7 @@ function Frame({ title, children }) {
   );
 }
 
-export function EldecoMock() {
+export function FinancialReportingMock() {
   const lines = [
     ["WIP, project in progress", "279", "Inventories"],
     ["Realisation under agreement to sell", "137", "Other current liabilities"],
@@ -29,7 +29,7 @@ export function EldecoMock() {
     ["Sundry debtors", "30", "Trade receivables"],
   ];
   return (
-    <Frame title="eldeco / trial-balance → balance-sheet">
+    <Frame title="financial-reporting / trial-balance → balance-sheet">
       <motion.div {...inView} className="space-y-1.5 font-mono text-[11px] sm:text-xs">
         <div className="grid grid-cols-[1.4fr_0.8fr_1.3fr] gap-3 px-2 pb-1 text-mist/70"><span>Ledger group</span><span className="text-right">Ledgers</span><span>Schedule III head</span></div>
         {lines.map(([l, a, h], i) => (
@@ -145,4 +145,4 @@ export function InvoiceMock() {
   );
 }
 
-export const mockFor = { eldeco: EldecoMock, "virtual-cfo": CfoMock, "bank-reconciliation": RecoMock, "invoice-automation": InvoiceMock };
+export const mockFor = { "financial-reporting": FinancialReportingMock, "virtual-cfo": CfoMock, "bank-reconciliation": RecoMock, "invoice-automation": InvoiceMock };

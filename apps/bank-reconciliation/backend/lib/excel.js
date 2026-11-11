@@ -28,8 +28,8 @@ export async function buildWorkbook(result) {
   sum.addRow([]);
   const h = sum.addRow(["Metric", "Bank Statement", "Books / Cash Book"]);
   h.eachCell((c) => { c.fill = HEAD; c.font = { bold: true, color: { argb: "FFFFFFFF" } }; });
-  [["Opening balance", s.bank.opening, s.books.opening], ["Total credits", s.bank.credits, s.books.credits], ["Total debits", s.bank.debits, s.books.debits],
-    ["Net movement", s.bank.net, s.books.net], ["Closing balance", s.bank.closing, s.books.closing], ["Closing difference (Books − Bank)", null, s.difference]]
+  [["Total credits", s.bank.credits, s.books.credits], ["Total debits", s.bank.debits, s.books.debits],
+    ["Net movement", s.bank.net, s.books.net], ["Difference (Books − Bank)", "Books − Bank", s.difference]]
     .forEach((r) => { const row = sum.addRow(r); row.getCell(2).numFmt = INR; row.getCell(3).numFmt = INR; });
   sum.addRow([]);
   [["Bank rows", result.stats.bankRows], ["Book rows", result.stats.bookRows], ["Bank rows matched", result.stats.matchedBank],

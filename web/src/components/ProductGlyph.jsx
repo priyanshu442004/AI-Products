@@ -1,6 +1,6 @@
 /* Small custom glyphs for each portal product (consistent 1.6 stroke, 20px grid). */
 const G = {
-  eldeco: (
+  "financial-reporting": (
     <>
       <rect x="4" y="2.5" width="12" height="15" rx="2" />
       <path d="M7 6.5h6M7 9.5h6M7 12.5h3.5" />

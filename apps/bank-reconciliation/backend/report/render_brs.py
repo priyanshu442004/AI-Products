@@ -167,7 +167,7 @@ def render(m, out):
     d.top += 24.4
     numbered(m["nextSteps"])
 
-    heading("4. MVP product recommendations", 21.6)
+    heading("4. Product recommendations", 21.6)
     d.top += 24.4
     numbered(m["productNotes"])
 

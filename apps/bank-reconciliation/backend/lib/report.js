@@ -145,7 +145,7 @@ export function buildReconciliation({ bank, books, opening, tolerance = 3, accou
   const statusText = reconciled
     ? "Bank and book balances agree and every transaction is matched. This report is system-generated, not an accounting sign-off."
     : `The statement and books have been compared at transaction level. ${ex.length} item${ex.length === 1 ? "" : "s"} — ${kindText} — require${ex.length === 1 ? "s" : ""} review. ${
-        Math.abs(residual) < 0.005 ? "The listed items fully explain the closing difference." : `An unexplained residual of ${inr(residual)} remains.`
+        Math.abs(residual) < 0.005 ? "The listed items fully explain the difference." : `An unexplained residual of ${inr(residual)} remains.`
       } This is a system-generated report, not an accounting sign-off.`;
 
   const counts = r.matches.reduce((a, m) => ((a[m.type] = (a[m.type] || 0) + 1), a), {});
@@ -179,16 +179,14 @@ export function pdfModel(res) {
     statusLead: res.status.lead,
     statusText: res.status.text,
     summary: [
-      row("Opening balance", inr(s.bank.opening), inr(s.books.opening)),
       row("Total credits", inr(s.bank.credits), inr(s.books.credits)),
       row("Total debits", inr(s.bank.debits), inr(s.books.debits)),
       row("Net movement", inr(s.bank.net, { sign: true }), inr(s.books.net, { sign: true })),
-      row("Closing balance", inr(s.bank.closing, { sign: true }), inr(s.books.closing, { sign: true })),
-      row("Closing difference (Books − Bank)", "—", inr(s.difference, { sign: true })),
+      row("Difference (Books − Bank)", "Books − Bank", inr(s.difference, { sign: true })),
     ],
     exceptions: res.exceptions.map((e) => ({ title: e.title, text: e.text, next: e.next })),
     nextSteps: [
-      "Confirm the account, period, opening balance and debit/credit sign convention.",
+      "Confirm the account, period and debit/credit sign convention.",
       "Run exact reference-and-amount matching, then configurable date/narration matching.",
       "Support one-to-many and many-to-one matches; keep underlying source rows linked.",
       "Route ambiguous candidates and all amount mismatches to a human reviewer.",

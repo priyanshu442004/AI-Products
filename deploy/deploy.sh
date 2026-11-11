@@ -11,14 +11,14 @@ cd "$ROOT/web"
 npm ci --no-audit --no-fund
 npm run build
 
-echo "→ Eldeco frontend (apps/eldeco/)"
-cd "$ROOT/apps/eldeco"
+echo "→ Financial Reporting frontend (apps/financial-reporting/)"
+cd "$ROOT/apps/financial-reporting"
 npm ci --no-audit --no-fund
 npm run build
 
-mkdir -p "$ROOT/apps/eldeco/backend/uploads" "$ROOT/apps/eldeco/backend/data"
-echo "→ Eldeco backend deps"
-cd "$ROOT/apps/eldeco/backend"
+mkdir -p "$ROOT/apps/financial-reporting/backend/uploads" "$ROOT/apps/financial-reporting/backend/data"
+echo "→ Financial Reporting backend deps"
+cd "$ROOT/apps/financial-reporting/backend"
 npm ci --omit=dev --no-audit --no-fund
 
 echo "→ Bank Reconciliation (apps/bank-reconciliation/)"
@@ -53,8 +53,8 @@ echo "→ Publishing static files to $PUBLIC"
 STAGE="$(mktemp -d)"
 chmod 755 "$STAGE"   # mktemp creates 0700; nginx (www-data) must be able to read the published tree
 cp -r "$ROOT/web/dist/." "$STAGE/"
-mkdir -p "$STAGE/app/eldeco"
-cp -r "$ROOT/apps/eldeco/dist/." "$STAGE/app/eldeco/"
+mkdir -p "$STAGE/app/financial-reporting"
+cp -r "$ROOT/apps/financial-reporting/dist/." "$STAGE/app/financial-reporting/"
 mkdir -p "$STAGE/app/bank-reconciliation"
 cp -r "$ROOT/apps/bank-reconciliation/frontend/dist/." "$STAGE/app/bank-reconciliation/"
 for app in virtual-cfo invoice-automation; do

@@ -79,7 +79,7 @@ export default function Chat({ id, initial, company }) {
         <div className="mx-auto max-w-3xl space-y-5">
           <AnimatePresence initial={false}>
             {messages.map((m, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35, ease: EASE }}
+              <motion.div key={i} initial={{ y: 8 }} animate={{ y: 0 }} transition={{ duration: 0.35, ease: EASE }}
                 className={m.role === "user" ? "flex justify-end" : "flex gap-3"}>
                 {m.role === "user" ? (
                   <p className="max-w-[85%] whitespace-pre-wrap rounded-2xl rounded-br-md bg-ink px-4 py-2.5 text-[15px] text-paper">{m.content}</p>

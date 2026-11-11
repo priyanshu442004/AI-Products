@@ -3,6 +3,7 @@ import { motion } from "motion/react";
 import { useApi } from "@shared/api";
 import { Btn, Stat, Steps, Badge, Icon, rise, EASE } from "@shared/ui";
 import { inr, inrShort, ago } from "@shared/format";
+import AISummary from "../components/AISummary";
 
 export default function Overview() {
   const { data } = useApi("/runs");
@@ -39,6 +40,8 @@ export default function Overview() {
         <Stat i={4} label="Value checked" value={inrShort(value)} note="Taxable + calculated GST" />
       </div>
 
+      <AISummary />
+
       <div className="mt-6 grid gap-6 lg:grid-cols-12">
         <motion.section {...rise(5)} className="card lg:col-span-7">
           <div className="flex items-baseline justify-between px-5 pt-5"><h2 className="text-lg font-medium">Recent batches</h2><Link to="/runs" className="text-sm text-teal-ink hover:underline">View all</Link></div>
@@ -71,7 +74,7 @@ function InvoiceVisual() {
   return (
     <div className="relative hidden h-[230px] lg:col-span-5 lg:block" aria-hidden>
       {[0, 1, 2].map((i) => (
-        <motion.div key={i} initial={{ opacity: 0, y: 20, rotate: -4 + i * 4 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 + i * 0.15, duration: 0.7, ease: EASE }}
+        <motion.div key={i} initial={{ y: 20, rotate: -4 + i * 4 }} animate={{ y: 0 }} transition={{ delay: 0.3 + i * 0.15, duration: 0.7, ease: EASE }}
           className="absolute w-[190px] rounded-xl bg-paper p-4 text-ink shadow-2xl" style={{ left: 20 + i * 70, top: 10 + i * 18 }}>
           <p className="font-display text-[11px] font-semibold">TAX INVOICE</p>
           {[80, 55, 70, 40].map((w, k) => <div key={k} className={`mt-2 h-1.5 rounded-full ${k === 1 && i === 2 ? "bg-rose/60" : k === 2 ? "bg-teal/60" : "bg-ink/12"}`} style={{ width: `${w}%` }} />)}

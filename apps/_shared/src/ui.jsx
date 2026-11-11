@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { kb, dateTime } from "./format";
 
 export const EASE = [0.16, 1, 0.3, 1];
-export const rise = (i = 0) => ({ initial: { opacity: 0, y: 12 }, animate: { opacity: 1, y: 0 }, transition: { delay: 0.05 * i, duration: 0.6, ease: EASE } });
+export const rise = (i = 0) => ({ initial: { y: 12 }, animate: { y: 0 }, transition: { delay: 0.05 * i, duration: 0.6, ease: EASE } });
 
 // ------------------------------------------------------------------ icons
 const P = {
@@ -100,12 +100,11 @@ export function AppShell({ product, nav, cta }) {
           <span className="flex items-center gap-2 font-display text-[15px]"><Icon name={product.icon} />{product.name}</span>
           {cta ? <Link to={cta.to} className="grid size-10 place-items-center rounded-lg hover:bg-ink/5" aria-label={cta.label}><Icon name="plus" /></Link> : <span className="w-10" />}
         </div>
-        <AnimatePresence mode="wait">
-          <motion.main key={pathname} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.35, ease: EASE }}
-            className="mx-auto w-full max-w-[1200px] px-5 pb-20 pt-8 sm:px-8 sm:pt-10">
-            <Outlet />
-          </motion.main>
-        </AnimatePresence>
+        {/* Content is always visible: the entrance is a CSS slide only (no opacity, no
+            exit-before-enter), so a paused animation can never leave a blank page. */}
+        <main key={pathname} className="page-in mx-auto w-full max-w-[1200px] px-5 pb-20 pt-8 sm:px-8 sm:pt-10">
+          <Outlet />
+        </main>
       </div>
     </div>
   );
@@ -145,7 +144,7 @@ export function Stat({ label, value, note, tone, i = 0, bar }) {
     <motion.div {...rise(i)} className="card p-5">
       <p className="label">{label}</p>
       <p className={`num mt-2 font-display text-[1.7rem] leading-none ${t}`}>{value}</p>
-      {bar != null && <div className="mt-3 h-1 overflow-hidden rounded-full bg-ink/8"><motion.div className="h-full rounded-full bg-teal" initial={{ width: 0 }} animate={{ width: `${Math.min(100, bar)}%` }} transition={{ delay: 0.3, duration: 1, ease: EASE }} /></div>}
+      {bar != null && <div className="mt-3 h-1 overflow-hidden rounded-full bg-ink/8"><motion.div className="h-full rounded-full bg-teal" initial={false} animate={{ width: `${Math.min(100, bar)}%` }} transition={{ delay: 0.3, duration: 1, ease: EASE }} /></div>}
       {note && <p className="mt-2 text-[13px] text-muted">{note}</p>}
     </motion.div>
   );

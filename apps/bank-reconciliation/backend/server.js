@@ -72,8 +72,9 @@ app.post("/api/reconcile", limiter, upload.fields([{ name: "bank", maxCount: 1 }
     const bankFile = req.files?.bank?.[0], booksFile = req.files?.books?.[0];
     if (!bankFile || !booksFile) return res.status(400).json({ error: "Upload both the bank statement and the books ledger." });
 
-    const openingBank = num(req.body.openingBank);
-    const openingBooks = req.body.openingBooks === undefined || req.body.openingBooks === "" ? openingBank : num(req.body.openingBooks);
+    // No opening balance is asked for: both sides start at 0, so the difference is
+    // the difference in the period's movements (equal openings cancel out).
+    const openingBank = 0, openingBooks = 0;
     const tolerance = Math.min(15, Math.max(0, Math.round(num(req.body.tolerance, 3))));
     const signMode = ["auto", "bank", "accounting"].includes(req.body.signMode) ? req.body.signMode : "auto";
     const accountName = String(req.body.accountName || "").replace(/[\r\n]+/g, " ").trim().slice(0, 80);

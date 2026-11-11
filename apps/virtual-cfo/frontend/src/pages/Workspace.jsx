@@ -8,10 +8,10 @@ import Chat from "../components/Chat";
 import { SLOTS } from "./NewAnalysis";
 
 const STATUS_TONE = { Good: "good", Watch: "warn", Mixed: "warn", Low: "bad" };
-const TABS = [["chat", "CFO chat"], ["report", "Health report"], ["statements", "Statements & ratios"], ["documents", "Documents"]];
+const TABS = [["report", "Health report"], ["statements", "Statements & ratios"], ["documents", "Documents"], ["chat", "CFO chat"]];
 
 export default function Workspace() {
-  const { id, tab = "chat" } = useParams();
+  const { id, tab = "report" } = useParams();
   const { data, error, loading, reload } = useApi(`/runs/${id}`);
   const [resending, setResending] = useState(false);
 
@@ -44,7 +44,7 @@ export default function Workspace() {
 
       <nav className="mt-6 flex gap-1 overflow-x-auto border-b border-ink/8" aria-label="Analysis sections">
         {TABS.map(([k, l]) => (
-          <NavLink key={k} to={`/runs/${id}${k === "chat" ? "" : `/${k}`}`} end className={`relative whitespace-nowrap px-3.5 pb-3 pt-1 text-[14.5px] ${tab === k ? "text-ink" : "text-muted hover:text-ink"}`}>
+          <NavLink key={k} to={`/runs/${id}${k === "report" ? "" : `/${k}`}`} end className={`relative whitespace-nowrap px-3.5 pb-3 pt-1 text-[14.5px] ${tab === k ? "text-ink" : "text-muted hover:text-ink"}`}>
             {l}{tab === k && <motion.span layoutId="ws-tab" className="absolute inset-x-2 -bottom-px h-0.5 rounded-full bg-teal" transition={{ type: "spring", stiffness: 420, damping: 34 }} />}
           </NavLink>
         ))}

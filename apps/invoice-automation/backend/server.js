@@ -12,6 +12,7 @@ import { extractInvoice } from "./lib/extract.js";
 import { validateBatch, buildBatch, pdfModel, registerCsv } from "./lib/report.js";
 import { buildWorkbook } from "./lib/excel.js";
 import { mailReport, SUBJECT } from "./lib/mail.js";
+import { batchSummary } from "./lib/summary.js";
 
 const ROOT = path.dirname(fileURLToPath(import.meta.url));
 const DATA = path.join(ROOT, "data", "batches");
@@ -111,6 +112,7 @@ app.post("/api/batches", limiter, upload.array("invoices", MAX_FILES), async (re
     const meta = readJson(metaPath);
     if (!meta.mail || meta.mail.status !== "sent") await sendMail(dir, meta);
     res.json({ id, meta, batch: readJson(path.join(dir, "batch.json")) });
+    batchSummary(dir).catch((e) => console.error("summary pre-generation:", e.message)); // ready before the Overview is opened
   } catch (e) {
     console.error("batch:", e);
     res.status(422).json({ error: e.message || "Could not process the invoices." });
@@ -122,6 +124,20 @@ app.get("/api/runs", (_req, res) => {
     .sort((a, b) => b.createdAt.localeCompare(a.createdAt));
   res.json({ runs });
 });
+// AI summary report (DeepSeek) — latest batch by default, or ?id=…; ?refresh=1 regenerates
+app.get("/api/summary", async (req, res) => {
+  try {
+    const ids = fs.readdirSync(DATA).filter((id) => fs.existsSync(path.join(DATA, id, "meta.json")))
+      .map((id) => readJson(path.join(DATA, id, "meta.json"))).sort((a, b) => b.createdAt.localeCompare(a.createdAt)).map((m) => m.id);
+    const id = req.query.id && ids.includes(req.query.id) ? req.query.id : ids[0];
+    if (!id) return res.json({ empty: true, message: "Process a batch of invoices to get an AI summary." });
+    res.json(await batchSummary(path.join(DATA, id), { refresh: req.query.refresh === "1" }));
+  } catch (e) {
+    console.error("summary:", e.message);
+    res.status(502).json({ error: "The AI summary couldn't be generated right now. Please try again." });
+  }
+});
+
 app.get("/api/runs/:id", (req, res) => {
   const dir = runDir(req.params.id);
   if (!dir || !fs.existsSync(path.join(dir, "batch.json"))) return res.status(404).json({ error: "Batch not found" });

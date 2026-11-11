@@ -130,7 +130,7 @@ export const benefits = [
 
 export const process = [
   { no: "01", title: "Discover", body: "We sit with the team that does the work today, map the process and find the hours worth automating." },
-  { no: "02", title: "Prototype", body: "A working MVP on your real data within weeks — so decisions are made on evidence, not slides." },
+  { no: "02", title: "Prototype", body: "A working prototype on your real data within weeks — so decisions are made on evidence, not slides." },
   { no: "03", title: "Build", body: "Production engineering: security, integrations, access control and the dull edge cases that matter." },
   { no: "04", title: "Run & improve", body: "We stay after go-live with ongoing support, monitoring and iteration as your data changes." },
 ];

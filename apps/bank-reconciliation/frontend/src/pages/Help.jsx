@@ -9,7 +9,7 @@ export default function Help() {
         What to upload, how matching decides, and what each exception means.
       </PageHeader>
 
-      <Steps items={[["Upload", "Bank statement and books ledger for the same period (CSV or Excel), plus the opening balance."], ["Detect", "Columns, date format (D/M vs M/D) and the books' debit/credit convention are recognised automatically."],
+      <Steps items={[["Upload", "Bank statement and books ledger for the same period (CSV or Excel)."], ["Detect", "Columns, date format (D/M vs M/D) and the books' debit/credit convention are recognised automatically."],
         ["Match & classify", "Six matching passes, then every leftover item is classified with a next step."], ["Report", "PDF + Excel on screen and in History; the PDF is emailed to the finance team."]]} />
 
       <div className="mt-6 grid gap-5 lg:grid-cols-2">
@@ -37,8 +37,8 @@ export default function Help() {
 
       <h2 className="mb-3 mt-10 text-xl font-medium">Questions</h2>
       <Faq items={[
-        ["Why does it ask for the opening balance?", "Statements and ledgers list transactions, not the balance brought forward. The opening balance is needed to compute closing balances and the difference."],
-        ["What does “unexplained residual” mean?", "The listed exceptions should add up exactly to the closing difference. Anything left over is shown as a residual — the reconciliation stays open; nothing is plugged."],
+        ["Why is there no opening balance?", "Both sides cover the same period, so the opening balance cancels out. The difference is worked out from the period's transactions: total credits minus debits in the books versus the bank."],
+        ["What does “unexplained residual” mean?", "The listed exceptions should add up exactly to the difference. Anything left over is shown as a residual — the reconciliation stays open; nothing is plugged."],
         ["Will it post entries to my books?", "No. It only suggests what to record (bank charges, interest, missing receipts). Post them in your accounting software after review."],
         ["Who receives the email?", "The finance recipients listed under Settings. Each unique reconciliation is emailed once; you can resend from its page."],
         ["Is an AI model deciding the matches?", "No. Amounts, totals and matches are computed by deterministic rules so the same files always give the same result."],

@@ -12,15 +12,12 @@ export default function NewRun() {
   const [bank, setBank] = useState([]);
   const [books, setBooks] = useState([]);
   const [accountName, setAccountName] = useState("");
-  const [openingBank, setOpeningBank] = useState("");
-  const [sameOpening, setSameOpening] = useState(true);
-  const [openingBooks, setOpeningBooks] = useState("");
   const [tolerance, setTolerance] = useState(3);
   const [signMode, setSignMode] = useState("auto");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
 
-  const ready = bank.length && books.length && openingBank !== "";
+  const ready = bank.length && books.length;
 
   const submit = async (e) => {
     e.preventDefault();
@@ -29,8 +26,6 @@ export default function NewRun() {
     f.append("bank", bank[0]);
     f.append("books", books[0]);
     f.append("accountName", accountName);
-    f.append("openingBank", openingBank);
-    f.append("openingBooks", sameOpening ? openingBank : openingBooks);
     f.append("tolerance", String(tolerance));
     f.append("signMode", signMode);
     setError(""); setBusy(true);
@@ -63,7 +58,6 @@ export default function NewRun() {
             <Icon name="file" className="size-4" /> No files to hand?
             <a className="text-teal-ink underline underline-offset-4" href={`${import.meta.env.BASE_URL}samples/sample_bank_statement.csv`} download>Sample statement</a> ·
             <a className="text-teal-ink underline underline-offset-4" href={`${import.meta.env.BASE_URL}samples/sample_books_ledger.csv`} download>Sample ledger</a>
-            <span>(opening balance ₹12,50,000)</span>
           </p>
         </div>
 
@@ -74,20 +68,6 @@ export default function NewRun() {
               <input value={accountName} onChange={(e) => setAccountName(e.target.value)} placeholder="e.g. HDFC Current A/c 0042"
                 className="h-11 w-full rounded-xl border border-ink/12 bg-white px-3.5 text-[15px] outline-none transition-colors focus:border-teal" />
             </Field>
-            <Field label="Opening balance — bank" hint="Statement balance at period start" required>
-              <Money value={openingBank} onChange={setOpeningBank} />
-            </Field>
-            <label className="flex cursor-pointer items-center gap-2.5 text-sm text-muted">
-              <input type="checkbox" checked={sameOpening} onChange={(e) => setSameOpening(e.target.checked)} className="size-4 accent-[#1d7a73]" />
-              Books opening balance is the same
-            </label>
-            <AnimatePresence initial={false}>
-              {!sameOpening && (
-                <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="overflow-hidden">
-                  <Field label="Opening balance — books"><Money value={openingBooks} onChange={setOpeningBooks} /></Field>
-                </motion.div>
-              )}
-            </AnimatePresence>
             <Field label={`Date tolerance · ${tolerance} day${tolerance === 1 ? "" : "s"}`} hint="How far apart bank and book dates may be">
               <input type="range" min="0" max="7" value={tolerance} onChange={(e) => setTolerance(+e.target.value)} className="w-full accent-[#1d7a73]" />
             </Field>
@@ -103,7 +83,7 @@ export default function NewRun() {
             </Field>
           </div>
           <Btn type="submit" disabled={!ready} className="mt-7 h-12 w-full" icon="arrow">Reconcile</Btn>
-          {!ready && <p className="mt-3 text-center text-xs text-muted">Add both files and the opening balance to continue.</p>}
+          {!ready && <p className="mt-3 text-center text-xs text-muted">Add both files to continue.</p>}
         </aside>
       </div>
     </form>
@@ -118,15 +98,6 @@ function Field({ label, hint, required, children }) {
         {hint && <span className="block text-[11.5px] text-muted">{hint}</span>}
       </div>
       {children}
-    </div>
-  );
-}
-
-function Money({ value, onChange }) {
-  return (
-    <div className="flex h-11 items-center rounded-xl border border-ink/12 bg-white px-3.5 transition-colors focus-within:border-teal">
-      <span className="mr-1.5 text-muted">₹</span>
-      <input inputMode="decimal" value={value} onChange={(e) => onChange(e.target.value.replace(/[^\d.,-]/g, ""))} placeholder="0.00" className="num w-full bg-transparent text-[15px] outline-none" />
     </div>
   );
 }

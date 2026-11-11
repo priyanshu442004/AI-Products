@@ -15,7 +15,7 @@ export default function Processing() {
       <h1 className="mt-3 text-3xl font-medium">Working through your transactions…</h1>
       <ol className="mt-8 space-y-2">
         {STEPS.map((s, k) => (
-          <motion.li key={s} initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: k * 0.08 }}
+          <motion.li key={s} initial={{ x: -8 }} animate={{ x: 0 }} transition={{ delay: k * 0.08 }}
             className={`relative flex items-center gap-3 overflow-hidden rounded-xl border px-4 py-3 text-[15px] ${k < i ? "border-ink/8 bg-white/60 text-muted" : k === i ? "border-teal/40 bg-white" : "border-ink/6 text-muted/60"}`}>
             {k === i && <span className="shimmer absolute inset-0" aria-hidden />}
             <span className={`relative grid size-5 place-items-center rounded-full ${k < i ? "bg-teal-ink text-white" : k === i ? "border-2 border-teal" : "border border-ink/20"}`}>

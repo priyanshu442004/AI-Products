@@ -77,7 +77,7 @@ export default function Overview() {
 
       <div className="mt-6">
         <Steps items={[["Read", "Columns, date format and debit/credit convention are detected automatically."], ["Match", "Exact reference, amount + date, then one-to-many and many-to-one groups."],
-          ["Explain", "Every unmatched item is classified; together they must equal the closing difference."], ["Report", "PDF and Excel are generated and emailed to the finance team."]]} />
+          ["Explain", "Every unmatched item is classified; together they must equal the difference."], ["Report", "PDF and Excel are generated and emailed to the finance team."]]} />
       </div>
     </>
   );
@@ -96,7 +96,7 @@ function MatchVisual() {
           <motion.path key={i} d={`M130 ${35 + a * 48} C180 ${35 + a * 48} 180 ${35 + b * 48} 230 ${35 + b * 48}`} fill="none" stroke="#4fb3ac" strokeWidth="1.6"
             initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ delay: 0.5 + i * 0.25, duration: 0.8, ease: EASE }} />
         ) : (
-          <motion.g key={i} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.6 }}>
+          <motion.g key={i}>
             <path d={`M130 ${35 + a * 48} H170`} stroke="#b5d661" strokeDasharray="3 4" strokeWidth="1.6" />
             <text x="176" y={39 + a * 48} fill="#b5d661" fontSize="11" fontFamily="JetBrains Mono Variable, monospace">review</text>
           </motion.g>

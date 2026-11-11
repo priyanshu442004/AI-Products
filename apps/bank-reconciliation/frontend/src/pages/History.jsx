@@ -31,7 +31,7 @@ export default function History() {
               <thead><tr className="text-left">{["Account & period", "Status", "Difference", "Matched", "Review items", "Email", "Created", ""].map((h) => <th key={h} className="label px-4 py-3 font-medium">{h}</th>)}</tr></thead>
               <tbody className="num divide-y divide-ink/6">
                 {runs.map((r, i) => (
-                  <motion.tr key={r.id} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: i * 0.03, ease: EASE }} className="hover:bg-paper-2/40">
+                  <motion.tr key={r.id} className="hover:bg-paper-2/40">
                     <td className="px-4 py-3.5">
                       <Link to={`/runs/${r.id}`} className="font-medium hover:text-teal-ink">{r.accountName}</Link>
                       <p className="font-mono text-[11px] text-muted">{r.period?.label}</p>

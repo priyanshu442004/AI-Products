@@ -6,7 +6,7 @@ import { fileUrl } from "@shared/api";
 import { Stat as Kpi, MailStatus, Btn } from "@shared/ui";
 
 const EASE = [0.16, 1, 0.3, 1];
-const rise = (i = 0) => ({ initial: { opacity: 0, y: 12 }, animate: { opacity: 1, y: 0 }, transition: { delay: 0.05 * i, duration: 0.6, ease: EASE } });
+const rise = (i = 0) => ({ initial: { y: 12 }, animate: { y: 0 }, transition: { delay: 0.05 * i, duration: 0.6, ease: EASE } });
 const TONE = { rose: "bg-rose-soft text-rose", amber: "bg-amber-soft text-amber", teal: "bg-teal/12 text-teal-ink" };
 
 export default function Results({ meta, result: r, onResend, resending }) {
@@ -39,7 +39,7 @@ export default function Results({ meta, result: r, onResend, resending }) {
 
       {/* KPIs */}
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-        <Kpi i={1} label="Closing difference" value={inr(s.difference, { sign: true })} note="Books − Bank" tone={Math.abs(s.difference) < 0.005 ? "good" : "warn"} />
+        <Kpi i={1} label="Difference" value={inr(s.difference, { sign: true })} note="Books − Bank" tone={Math.abs(s.difference) < 0.005 ? "good" : "warn"} />
         <Kpi i={2} label="Bank rows matched" value={`${matchedPct}%`} note={`${r.stats.matchedBank} of ${r.stats.bankRows} · ${r.stats.autoMatched} auto-matched`} bar={matchedPct} />
         <Kpi i={3} label="Items for review" value={r.stats.exceptions} note={`${r.unmatched.bank.length} bank-only · ${r.unmatched.books.length} book-only`} tone={r.stats.exceptions ? "warn" : "good"} />
         <Kpi i={4} label="Unexplained residual" value={inr(r.bridge.residual)} note={Math.abs(r.bridge.residual) < 0.005 ? "Difference fully explained" : "Needs investigation"} tone={Math.abs(r.bridge.residual) < 0.005 ? "good" : "bad"} />
@@ -57,8 +57,8 @@ export default function Results({ meta, result: r, onResend, resending }) {
             <table className="mt-3 w-full text-sm">
               <thead><tr className="border-y border-ink/8 bg-paper-2/60 text-left"><th className="label px-5 py-2.5 font-medium">Metric</th><th className="label px-3 py-2.5 text-right font-medium">Bank</th><th className="label px-5 py-2.5 text-right font-medium">Books</th></tr></thead>
               <tbody className="num divide-y divide-ink/6">
-                {[["Opening balance", s.bank.opening, s.books.opening], ["Total credits", s.bank.credits, s.books.credits], ["Total debits", s.bank.debits, s.books.debits],
-                  ["Net movement", s.bank.net, s.books.net], ["Closing balance", s.bank.closing, s.books.closing]].map(([l, a, b]) => (
+                {[["Total credits", s.bank.credits, s.books.credits], ["Total debits", s.bank.debits, s.books.debits],
+                  ["Net movement", s.bank.net, s.books.net]].map(([l, a, b]) => (
                   <tr key={l}><td className="px-5 py-2.5 text-muted">{l}</td><td className="px-3 py-2.5 text-right">{inr(a)}</td><td className="px-5 py-2.5 text-right">{inr(b)}</td></tr>
                 ))}
                 <tr className="bg-paper-2/50 font-medium"><td className="px-5 py-3">Difference (Books − Bank)</td><td colSpan={2} className="px-5 py-3 text-right">{inr(s.difference, { sign: true })}</td></tr>
@@ -81,7 +81,7 @@ export default function Results({ meta, result: r, onResend, resending }) {
             {r.exceptions.map((e, i) => {
               const c = CLASSES[e.cls] || CLASSES.group;
               return (
-                <motion.li key={i} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25 + i * 0.03, ease: EASE, duration: 0.5 }} className="card p-4 sm:p-5">
+                <motion.li key={i} initial={{ y: 8 }} animate={{ y: 0 }} transition={{ delay: 0.25 + i * 0.03, ease: EASE, duration: 0.5 }} className="card p-4 sm:p-5">
                   <div className="flex flex-wrap items-start justify-between gap-x-4 gap-y-2">
                     <div className="min-w-0">
                       <span className={`inline-block rounded-md px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider ${TONE[c.tone]}`}>{c.label}</span>
@@ -104,7 +104,7 @@ export default function Results({ meta, result: r, onResend, resending }) {
   );
 }
 
-/** Bank closing → each explaining item → Books closing. */
+/** Each explaining item adds up to the difference (Books − Bank). */
 function Bridge({ r }) {
   const max = Math.max(...r.bridge.items.map((b) => Math.abs(b.amount)), 1);
   return (
@@ -128,7 +128,7 @@ function Bridge({ r }) {
       </ul>
       <div className="mt-4 space-y-1 border-t border-ink/8 pt-3 text-sm">
         <Row l="Explained" v={inr(r.bridge.explained, { sign: true })} />
-        <Row l="Closing difference" v={inr(r.summary.difference, { sign: true })} />
+        <Row l="Difference" v={inr(r.summary.difference, { sign: true })} />
         <Row l="Unexplained residual" v={inr(r.bridge.residual)} strong ok={Math.abs(r.bridge.residual) < 0.005} />
       </div>
     </motion.section>

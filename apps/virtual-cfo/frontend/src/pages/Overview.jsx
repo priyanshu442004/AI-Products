@@ -70,8 +70,8 @@ export default function Overview() {
 function ChatVisual() {
   return (
     <div className="relative hidden space-y-3 lg:col-span-5 lg:block" aria-hidden>
-      <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, ease: EASE }} className="ml-auto w-fit max-w-[85%] rounded-2xl rounded-br-md bg-paper px-4 py-2.5 text-sm text-ink">Why did profit grow while revenue was flat?</motion.p>
-      <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.9, ease: EASE }} className="max-w-[92%] rounded-2xl rounded-bl-md border border-white/10 bg-white/5 px-4 py-3 text-sm text-paper">
+      <motion.p initial={{ y: 10 }} animate={{ y: 0 }} transition={{ delay: 0.4, ease: EASE }} className="ml-auto w-fit max-w-[85%] rounded-2xl rounded-br-md bg-paper px-4 py-2.5 text-sm text-ink">Why did profit grow while revenue was flat?</motion.p>
+      <motion.div initial={{ y: 10 }} animate={{ y: 0 }} transition={{ delay: 0.9, ease: EASE }} className="max-w-[92%] rounded-2xl rounded-bl-md border border-white/10 bg-white/5 px-4 py-3 text-sm text-paper">
         <p>Mainly <b className="text-lime">lower material costs</b> — 42.6% of revenue vs 54.4% (P&L).</p>
         <ul className="mt-2 space-y-1 text-mist"><li>• Net profit +137.6% on +0.02% revenue</li><li>• Partly offset by finance cost +36.5%</li></ul>
       </motion.div>

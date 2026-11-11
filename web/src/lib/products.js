@@ -4,19 +4,19 @@
 
 export const products = [
   {
-    slug: "eldeco",
-    name: "Eldeco MVP",
+    slug: "financial-reporting",
+    name: "Financial Reporting",
     category: "Financial statements",
     status: "live",
-    appPath: "/app/eldeco/",
-    entryPath: "/app/eldeco/dashboard", // skip the app's own landing page inside the portal
+    appPath: "/app/financial-reporting/",
+    entryPath: "/app/financial-reporting/dashboard", // skip the app's own landing page inside the portal
     summary: "Upload a raw trial balance and get Schedule III balance sheet, profit & loss and notes to accounts — classified by AI, exportable to Excel.",
     flow: ["Trial balance (.xlsx)", "AI ledger classification", "Balance sheet · P&L · Notes"],
     features: ["Trial balance upload & preview", "AI ledger-to-head mapping", "Balance sheet & P&L generation", "Notes to accounts", "Excel / PDF export", "AI assistant over your financials"],
   },
   {
     slug: "virtual-cfo",
-    name: "Virtual CFO MVP",
+    name: "Virtual CFO",
     category: "Finance intelligence",
     status: "live",
     appPath: "/app/virtual-cfo/",

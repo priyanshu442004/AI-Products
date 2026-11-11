@@ -6,8 +6,8 @@ const root = path.resolve(__dirname, "..");
 module.exports = {
   apps: [
     {
-      name: "eldeco-api",
-      cwd: path.join(root, "apps/eldeco/backend"), // server.js reads ./.env and writes ./uploads
+      name: "financial-reporting-api",
+      cwd: path.join(root, "apps/financial-reporting/backend"), // server.js reads ./.env and writes ./uploads
       script: "server.js",
       env: { NODE_ENV: "production", PORT: 8000 },
       max_memory_restart: "700M",
