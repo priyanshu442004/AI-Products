@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------
+   Analytx4t design tokens — derived from the brand mark
+   (navy #0d1d3b on the existing site, teal #4fb3ac, lime→cyan gradient)
+   ------------------------------------------------------------------ */
+@theme {
+  --font-display: "Funnel Display Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Instrument Sans Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, monospace;
+  --font-serif: "Newsreader", Georgia, serif;
+
+  --color-ink: #0b1a33;
+  --color-ink-2: #12244a;
+  --color-ink-3: #1b315e;
+  --color-paper: #f3f5f1;
+  --color-paper-2: #e8ece5;
+  --color-paper-3: #dde3da;
+  --color-muted: #566176;
+  --color-mist: #9aa7bd;      /* muted text on navy */
+  --color-teal: #4fb3ac;      /* brand teal — fills, on navy */
+  --color-teal-ink: #1d7a73;  /* teal for text on paper (AA) */
+  --color-lime: #b5d661;      /* signal accent — sparing */
+  --color-cyan: #2ba8c8;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  html.lenis, html.lenis body { height: auto; }
+  .lenis.lenis-smooth { scroll-behavior: auto !important; }
+  body {
+    @apply bg-paper text-ink font-sans;
+    font-feature-settings: "ss01", "cv11";
+  }
+  ::selection { background: var(--color-lime); color: var(--color-ink); }
+  :focus-visible { outline: 2px solid var(--color-teal); outline-offset: 3px; border-radius: 6px; }
+  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.025em; }
+}
+
+@layer components {
+  .container-x { @apply mx-auto w-full max-w-[1320px] px-5 sm:px-8 lg:px-12; }
+
+  /* mono eyebrow label with a node dot — echoes the logo's network nodes */
+  .eyebrow {
+    @apply inline-flex items-center gap-2.5 font-mono text-[11px] font-medium uppercase tracking-[0.18em];
+  }
+  .eyebrow::before {
+    content: ""; width: 7px; height: 7px; border-radius: 99px;
+    background: var(--color-lime); box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-lime) 25%, transparent);
+  }
+
+  .accent-serif { font-family: var(--font-serif); font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
+
+  /* hairline rule used to structure sections like a ledger */
+  .rule { border-color: color-mix(in oklab, var(--color-ink) 12%, transparent); }
+  .rule-dark { border-color: rgb(255 255 255 / 0.1); }
+
+  /* faint blueprint grid for navy surfaces */
+  .grid-bg {
+    background-image:
+      linear-gradient(rgb(255 255 255 / 0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(255 255 255 / 0.045) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+  .dot-bg {
+    background-image: radial-gradient(color-mix(in oklab, var(--color-ink) 16%, transparent) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+
+  /* text link with a drawn underline */
+  .link-draw {
+    background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
+    transition: background-size .5s var(--ease-out-expo);
+  }
+  .link-draw:hover { background-size: 100% 1px; }
+
+  /* cursor-tracked spotlight border (set --mx/--my from JS) */
+  .spotlight { position: relative; isolation: isolate; }
+  .spotlight::before {
+    content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1px; z-index: -1;
+    background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%),
+      color-mix(in oklab, var(--color-teal) 85%, transparent), transparent 45%);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor; mask-composite: exclude;
+    opacity: 0; transition: opacity .4s ease;
+  }
+  .spotlight:hover::before { opacity: 1; }
+  .spotlight::after {
+    content: ""; position: absolute; inset: 0; border-radius: inherit; z-index: -1; pointer-events: none;
+    background: radial-gradient(520px circle at var(--mx, 50%) var(--my, 50%),
+      color-mix(in oklab, var(--color-teal) 9%, transparent), transparent 40%);
+    opacity: 0; transition: opacity .4s ease;
+  }
+  .spotlight:hover::after { opacity: 1; }
+
+  .marquee-mask { mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); }
+}
+
+/* film grain — kills the flat "generated" look on large fields */
+.grain::after {
+  content: ""; position: fixed; inset: -50%; pointer-events: none; z-index: 60; opacity: .05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@keyframes marquee { to { transform: translateX(-50%); } }
+.animate-marquee { animation: marquee 48s linear infinite; }
+.group\/marquee:hover .animate-marquee { animation-play-state: paused; }
+
+@keyframes pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: .35; } }
+.pulse-dot { animation: pulse-dot 1.8s ease-in-out infinite; }
+
+/* ---------- Page transitions (View Transitions API) ---------- */
+::view-transition-old(root) { animation: vt-out .32s var(--ease-out-quint) both; }
+::view-transition-new(root) { animation: vt-in .55s var(--ease-out-expo) both; }
+@keyframes vt-out { to { opacity: 0; transform: translateY(-8px); filter: blur(4px); } }
+@keyframes vt-in { from { opacity: 0; transform: translateY(14px); filter: blur(6px); } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  ::view-transition-old(root), ::view-transition-new(root) { animation: none; }
+}
