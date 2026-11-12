@@ -311,7 +311,7 @@ export function CTA() {
           <p className="mt-6 max-w-lg text-lg text-mist">Tell us what it is. We'll come back with how we'd automate it, what it would take, and a working prototype plan.</p>
           <div className="mt-10 flex flex-wrap gap-3">
             <Button to="/contact" variant="light" size="lg">Talk to us</Button>
-            <Button to="/login" variant="outline-dark" size="lg" arrow={false}>Client login</Button>
+            <Button to="/signup" variant="outline-dark" size="lg" arrow={false}>Sign up</Button>
           </div>
         </div>
       </Reveal>

@@ -166,14 +166,6 @@ def render(m, out):
     heading("3. Recommended next steps", 25.6)
     d.top += 24.4
     numbered(m["nextSteps"])
-
-    heading("4. Product recommendations", 21.6)
-    d.top += 24.4
-    numbered(m["productNotes"])
-
-    heading("Important limitation", 31.6)
-    d.top += 24.4
-    d.para([(m["limitation"], "r")], 8.5, 12)
     c.showPage()
     c.save()
 

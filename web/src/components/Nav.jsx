@@ -70,8 +70,8 @@ export default function Nav() {
           </nav>
 
           <div className="hidden items-center gap-2 md:flex">
-            <Link to="/login" viewTransition className="px-4 py-2 text-[15px] text-muted transition-colors hover:text-ink">
-              Client login
+            <Link to="/signup" viewTransition className="px-4 py-2 text-[15px] text-muted transition-colors hover:text-ink">
+              Sign up
             </Link>
             <Button to="/contact" size="sm">Start a project</Button>
           </div>
@@ -99,7 +99,7 @@ export default function Nav() {
             transition={{ duration: 0.6, ease: EASE }}
           >
             <nav className="flex flex-col" aria-label="Mobile">
-              {[{ to: "/", label: "Home" }, ...links, { to: "/login", label: "Client login" }].map((l, i) => (
+              {[{ to: "/", label: "Home" }, ...links, { to: "/signup", label: "Sign up" }].map((l, i) => (
                 <motion.div key={l.to} initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 + i * 0.05, duration: 0.6, ease: EASE }}>
                   <Link to={l.to} viewTransition className="flex items-baseline justify-between border-b rule py-4 font-display text-4xl tracking-tight">
                     {l.label}
