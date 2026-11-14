@@ -1,36 +1,13 @@
-// All copy is sourced from analytx4t.com (home, about, product pages).
+// Site copy. Brand: Agarwal & Saxena, Chartered Accountants.
 // No invented stats, clients or testimonials — add real ones here when available.
 
 export const company = {
-  name: "Analytx4t Lab",
-  legal: "Analytx4t Lab Pvt Ltd",
-  tagline: "Analytics for Transformation",
+  name: "Agarwal & Saxena",
+  legal: "Agarwal & Saxena, Chartered Accountants",
+  tagline: "Chartered Accountants",
+  portal: "Workflow Automation", // name of the signed-in product portal
+  // Inbox for portal access requests (Sign up form). Replace with the firm's own address when available.
   email: "info@analytx4t.com",
-  emails: [
-    { label: "General", value: "info@analytx4t.com" },
-    { label: "Anoop Singh Rawat", value: "anoops@analytx4t.com" },
-    { label: "Amit Kumar", value: "amit@analytx4t.com" },
-  ],
-  phones: ["+91 99583 74323", "+91 99902 96858"],
-  offices: [
-    { label: "Corporate office", lines: ["Sector 63, Noida", "Uttar Pradesh, India"] },
-    { label: "Registered office", lines: ["BE-200, T/F, Hari Nagar", "New Delhi 110064, India"] },
-  ],
-  socials: [
-    { label: "LinkedIn", href: "https://in.linkedin.com/company/analytx4tlabpvtltd" },
-    { label: "X / Twitter", href: "https://twitter.com/analytx4tlab" },
-    { label: "Instagram", href: "https://instagram.com/analytx4tlab" },
-    { label: "YouTube", href: "https://youtube.com/@analytx4tlab" },
-    { label: "Facebook", href: "https://www.facebook.com/profile.php?id=61566764070936" },
-  ],
-  mission:
-    "To deliver customized analytics, AI, and application solutions that boost efficiency, drive growth and empower data-driven decisions.",
-  vision:
-    "To be a leading force in data analytics, AI, and digital solutions — helping businesses innovate and transform.",
-  founders: [
-    { name: "Anoop Singh Rawat", role: "CEO & Founder", initials: "AR", email: "anoops@analytx4t.com" },
-    { name: "Amit Kumar", role: "Co-Founder", initials: "AK", email: "amit@analytx4t.com" },
-  ],
 };
 
 export const services = [
@@ -147,43 +124,4 @@ export const transformations = [
   ["Industry news", "Scheduled posts"],
   ["Sales history", "Demand forecast"],
   ["Candidate videos", "Scored interviews"],
-];
-
-export const labProducts = [
-  {
-    name: "InnovatePitch",
-    line: "A virtual Shark Tank with five AI judges.",
-    body: "Founders pitch live on camera; judges score innovation, feasibility, clarity, confidence and business potential, ask follow-ups and return detailed feedback.",
-  },
-  {
-    name: "FinSight",
-    line: "Financial health from uploaded documents.",
-    body: "Reads bank statements, audit reports and financial records to find gaps and inefficiencies, evaluate profitability and recommend next steps.",
-  },
-  {
-    name: "HireArena",
-    line: "Interview practice with two AI interviewers.",
-    body: "A live, camera-on technical and HR interview for freshers and job seekers, ending in a detailed evaluation of strengths and gaps.",
-  },
-];
-
-export const insights = [
-  {
-    title: "The hidden cost of manual financial reporting — and how automation solves it",
-    date: "31 Dec 2025",
-    tag: "Finance automation",
-    href: "https://analytx4t.com/the-hidden-cost-of-manual-financial-reporting-and-how-automation-solves-it/",
-  },
-  {
-    title: "AI-based interviews: bringing objectivity and data-driven scoring to evaluations",
-    date: "31 Dec 2025",
-    tag: "AI in hiring",
-    href: "https://analytx4t.com/ai-based-interviews-bringing-objectivity-and-data-driven-scoring-to-evaluations/",
-  },
-  {
-    title: "Leverage digital experience in a one-click world with data analytics",
-    date: "08 Feb 2021",
-    tag: "Analytics",
-    href: "https://analytx4t.com/leverage-digital-experience-data-analytics/",
-  },
 ];

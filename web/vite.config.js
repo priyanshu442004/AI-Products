@@ -21,6 +21,7 @@ export default defineConfig({
       '/app/bank-reconciliation': { target: 'http://localhost:5176', changeOrigin: true, ws: true },
       '/app/virtual-cfo': { target: 'http://localhost:5175', changeOrigin: true, ws: true },
       '/app/invoice-automation': { target: 'http://localhost:5177', changeOrigin: true, ws: true },
+      '/app/gst-reconciliation': { target: 'http://localhost:5178', changeOrigin: true, ws: true },
     },
   },
 })

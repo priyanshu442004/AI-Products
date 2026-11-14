@@ -1,5 +1,5 @@
-/* Shared design system for Analytx4t product apps (bank reconciliation, virtual CFO,
-   invoice automation). Imported by each app's index.css after "tailwindcss".
+/* Shared design system for the Agarwal & Saxena product apps (invoice automation, bank
+   reconciliation, financial statement analysis, GST reconciliation). Imported by each app's index.css after "tailwindcss".
    Tokens mirror the portal (web/src/styles/index.css). */
 @theme {
   --font-display: "Funnel Display Variable", ui-sans-serif, system-ui, sans-serif;
@@ -47,7 +47,7 @@
       linear-gradient(90deg, rgb(255 255 255 / 0.045) 1px, transparent 1px);
     background-size: 48px 48px;
   }
-  /* markdown answers (virtual CFO chat) */
+  /* markdown answers (document chat answers) */
   .prose-cfo { @apply text-[15px] leading-relaxed; }
   .prose-cfo h1, .prose-cfo h2, .prose-cfo h3 { @apply mt-4 mb-1.5 font-sans font-semibold tracking-normal text-ink first:mt-0; }
   .prose-cfo h1 { @apply text-[17px]; } .prose-cfo h2 { @apply text-[16px]; } .prose-cfo h3 { @apply text-[15px]; }

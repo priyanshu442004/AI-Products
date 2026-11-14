@@ -13,12 +13,14 @@ import History from "./pages/History";
 import RunDetail from "./pages/RunDetail";
 import Help from "./pages/Help";
 import Settings from "./pages/Settings";
+import Ask from "./pages/Ask";
 
-const product = { name: "Bank Reconciliation", tagline: "Analytx4t · Accounting", icon: "bank" };
+const product = { name: "Bank Reconciliation", tagline: "Agarwal & Saxena", icon: "bank" };
 const nav = [
   { to: "/", label: "Overview", icon: "overview", end: true },
   { to: "/new", label: "New reconciliation", icon: "plus" },
   { to: "/runs", label: "History", icon: "history" },
+  { to: "/chat", label: "Ask AI", icon: "ai" },
   { to: "/help", label: "Help & formats", icon: "help" },
   { to: "/settings", label: "Settings", icon: "settings" },
 ];
@@ -33,6 +35,8 @@ createRoot(document.getElementById("root")).render(
             <Route path="new" element={<NewRun />} />
             <Route path="runs" element={<History />} />
             <Route path="runs/:id" element={<RunDetail />} />
+            <Route path="chat" element={<Ask />} />
+            <Route path="chat/:id" element={<Ask />} />
             <Route path="help" element={<Help />} />
             <Route path="settings" element={<Settings />} />
             <Route path="*" element={<NotFound />} />

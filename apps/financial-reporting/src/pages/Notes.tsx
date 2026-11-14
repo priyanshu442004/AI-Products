@@ -147,9 +147,9 @@ const Notes = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#F8FAFC] via-blue-50/20 to-purple-50/20 p-8">
+    <div className="min-h-screen bg-gradient-to-br from-[#f3f5f1] via-blue-50/20 to-purple-50/20 p-8">
       <div className="max-w-5xl mx-auto">
-        <h1 className="text-2xl font-semibold text-[#0F172A] mb-8">
+        <h1 className="text-2xl font-semibold text-[#0b1a33] mb-8">
           Trial Balance Sections
         </h1>
 
@@ -157,30 +157,30 @@ const Notes = () => {
           {sections.map((section, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl border border-[#E5E7EB] shadow-sm"
+              className="bg-white rounded-xl border border-[#dde3da] shadow-sm"
             >
               <div
                 onClick={() => handleOpenModal(section.title)}
-                className="flex items-center justify-between px-6 py-4 cursor-pointer hover:bg-[#F8FAFC]"
+                className="flex items-center justify-between px-6 py-4 cursor-pointer hover:bg-[#f3f5f1]"
               >
-                <span className="font-medium text-[#0F172A]">
+                <span className="font-medium text-[#0b1a33]">
                   {section.title}
                 </span>
-                <ChevronRight className="w-5 h-5 text-[#94A3B8]" />
+                <ChevronRight className="w-5 h-5 text-[#9aa7bd]" />
               </div>
 
               {section.children && (
-                <div className="border-t border-[#E5E7EB] bg-[#F8FAFC]/50">
+                <div className="border-t border-[#dde3da] bg-[#f3f5f1]/50">
                   {section.children.map((child, idx) => (
                     <div
                       key={idx}
                       onClick={() => handleOpenModal(child.title)}
                       className="flex items-center justify-between px-10 py-3 text-sm cursor-pointer hover:bg-white"
                     >
-                      <span className="text-[#475569]">
+                      <span className="text-[#3a4659]">
                         {child.title}
                       </span>
-                      <ChevronRight className="w-4 h-4 text-[#94A3B8]" />
+                      <ChevronRight className="w-4 h-4 text-[#9aa7bd]" />
                     </div>
                   ))}
                 </div>

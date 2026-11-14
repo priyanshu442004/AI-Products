@@ -11,7 +11,7 @@ const MainLayout = () => {
     !hiddenRoutes.some(route => location.pathname.includes(route));
 
   return (
-    <div className="flex min-h-screen bg-gradient-to-br from-[#F8FAFC] via-blue-50/20 to-purple-50/20">
+    <div className="flex min-h-screen bg-paper">
       {showSidebar && <SideBar />}
       <main className="flex-1 overflow-y-auto">
         <Outlet />

@@ -1,4 +1,4 @@
-// Financial Reporting AI Assistant — DeepSeek grounded in the CURRENT trial
+// Trial Balance AI Assistant — DeepSeek grounded in the CURRENT trial
 // balance's generated statements (the same workbook as "Download All
 // Statements"), the trial balance aggregated by head, and the Cash Flow / SOCE
 // statements. Context is rebuilt whenever a different trial balance is uploaded.
@@ -78,7 +78,7 @@ export async function buildContext() {
   return cache.text;
 }
 
-const SYSTEM = (ctx) => `You are the Financial Reporting AI Assistant — a CFO-grade analyst for XYZ Infrastructure & Properties Limited's financial statements generated from the uploaded trial balance.
+const SYSTEM = (ctx) => `You are the Trial Balance AI Assistant — a CFO-grade analyst for XYZ Infrastructure & Properties Limited's financial statements generated from the uploaded trial balance.
 
 HOW TO ANSWER
 - Use ONLY the documents below for company figures, and name the source briefly, e.g. (Balance Sheet), (P&L), (Note 9), (Cash Flow).

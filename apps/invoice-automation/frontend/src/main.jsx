@@ -13,12 +13,14 @@ import History from "./pages/History";
 import BatchDetail from "./pages/BatchDetail";
 import Help from "./pages/Help";
 import Settings from "./pages/Settings";
+import Ask from "./pages/Ask";
 
-const product = { name: "Invoice Automation", tagline: "Analytx4t · Payables", icon: "invoice" };
+const product = { name: "Invoice Automation", tagline: "Agarwal & Saxena", icon: "invoice" };
 const nav = [
   { to: "/", label: "Overview", icon: "overview", end: true },
   { to: "/new", label: "Process invoices", icon: "plus" },
   { to: "/runs", label: "Batches", icon: "history" },
+  { to: "/chat", label: "Ask AI", icon: "ai" },
   { to: "/help", label: "Help & checks", icon: "help" },
   { to: "/settings", label: "Settings", icon: "settings" },
 ];
@@ -33,6 +35,8 @@ createRoot(document.getElementById("root")).render(
             <Route path="new" element={<NewBatch />} />
             <Route path="runs" element={<History />} />
             <Route path="runs/:id" element={<BatchDetail />} />
+            <Route path="chat" element={<Ask />} />
+            <Route path="chat/:id" element={<Ask />} />
             <Route path="help" element={<Help />} />
             <Route path="settings" element={<Settings />} />
             <Route path="*" element={<NotFound />} />

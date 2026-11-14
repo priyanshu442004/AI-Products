@@ -12,7 +12,7 @@ import { recordActivity } from "./activity.js";
 
 dotenv.config();
 
-export const SUBJECT_BASE = "Financial Reporting – Financial Report Generated";
+export const SUBJECT_BASE = "Trial Balance – Financial Report Generated";
 export const subject = () => `${SUBJECT_BASE} – Dated: ${todayIST()}`;
 /** DD-MM-YYYY in India time, for the "Dated:" suffix the client requires in every subject. */
 export const todayIST = () => new Intl.DateTimeFormat("en-GB", { timeZone: "Asia/Kolkata", day: "2-digit", month: "2-digit", year: "numeric" }).format(new Date()).replaceAll("/", "-");
@@ -112,11 +112,11 @@ export async function sendSupportMessage({ name, email, topic, message }) {
   const t = getTransporter();
   const to = recipients();
   if (!t || !to.length) return { status: "disabled" };
-  const text = `New support request from the Financial Reporting app.\n\nFrom: ${name || "Not given"} <${email}>\nTopic: ${topic}\n\n${message}`;
+  const text = `New support request from the Trial Balance app.\n\nFrom: ${name || "Not given"} <${email}>\nTopic: ${topic}\n\n${message}`;
   const info = await t.sendMail({
     from: process.env.MAIL_FROM || process.env.SMTP_USER,
     to, replyTo: email,
-    subject: `Financial Reporting – Support Request – Dated: ${todayIST()}`,
+    subject: `Trial Balance – Support Request – Dated: ${todayIST()}`,
     text,
   });
   recordActivity({ kind: "email", title: "Support request sent", file: topic, ok: true, detail: `From ${email}` });

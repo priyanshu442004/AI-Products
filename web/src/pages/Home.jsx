@@ -2,13 +2,13 @@ import { useEffect, useRef, useState } from "react";
 import StatusPill from "../components/StatusPill";
 import { Link } from "react-router";
 import { motion, useInView, useScroll, useTransform } from "motion/react";
-import { Button, Reveal, SplitHeading, Eyebrow, SectionHeader, Marquee, ArrowIcon, ArrowUpRight, useSpotlight, EASE } from "../components/ui";
+import { Button, Reveal, SplitHeading, Eyebrow, SectionHeader, Marquee, ArrowIcon, useSpotlight, EASE } from "../components/ui";
 import DataField from "../components/viz/DataField";
 import ScrollText from "../components/ScrollText";
 import { AgentFlowViz, ForecastViz, ChatViz, RagViz } from "../components/viz/CapabilityViz";
 import { mockFor } from "../components/viz/ProductMocks";
-import { capabilities, services, process, industries, transformations, insights } from "../lib/content";
-import { products } from "../lib/products";
+import { capabilities, services, process, industries, transformations } from "../lib/content";
+import { liveProducts as products } from "../lib/products";
 
 export default function Home() {
   return (
@@ -20,7 +20,6 @@ export default function Home() {
       <ServicesIndex />
       <Process />
       <Industries />
-      <Insights />
       <CTA />
     </>
   );
@@ -33,7 +32,7 @@ function Hero() {
       <div className="container-x relative grid items-end gap-10 lg:grid-cols-12">
         <div className="relative z-10 lg:col-span-7">
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: EASE }}>
-            <Eyebrow className="text-muted">Analytx4t Lab · AI &amp; analytics studio</Eyebrow>
+            <Eyebrow className="text-muted">Agarwal &amp; Saxena · Chartered Accountants</Eyebrow>
           </motion.div>
           <SplitHeading
             as="h1"
@@ -50,7 +49,7 @@ function Hero() {
             We build AI agents, RAG applications and analytics platforms that read your documents, reconcile your numbers and act on them — for finance, HR, travel and customer teams.
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.85, duration: 0.9, ease: EASE }} className="mt-10 flex flex-wrap items-center gap-3">
-            <Button to="/contact" size="lg">Start a project</Button>
+            <Button to="/signup" size="lg">Get started</Button>
             <Button to="/products" variant="outline" size="lg">See our products</Button>
           </motion.div>
         </div>
@@ -148,7 +147,7 @@ function ProductStory() {
           dark
           eyebrow="Products"
           title="Finance work that *runs* itself."
-          intro="Four products for the most repetitive work in an accounts team — each one built from real client engagements and available inside the Analytx4t portal."
+          intro="Five live products for the most repetitive work in an accounts team — each one available inside the Workflow Automation portal, with more on the way."
         />
         <div className="mt-16 grid gap-10 lg:grid-cols-12">
           <div className="hidden lg:col-span-4 lg:block">
@@ -271,32 +270,6 @@ function Industries() {
   );
 }
 
-/* ------------------------------------------------------------------ INSIGHTS */
-function Insights() {
-  return (
-    <section className="container-x pb-28 sm:pb-36">
-      <div className="flex items-end justify-between gap-6">
-        <SectionHeader eyebrow="Insights" title="Notes from the *lab*." />
-      </div>
-      <div className="mt-12 grid gap-4 md:grid-cols-3">
-        {insights.map((post, i) => (
-          <Reveal key={post.title} delay={i * 0.08}>
-            <a href={post.href} target="_blank" rel="noreferrer" className="group flex h-full flex-col rounded-3xl border border-ink/8 bg-white/50 p-7 transition-all duration-500 hover:-translate-y-1 hover:border-ink/15 hover:bg-white hover:shadow-[0_24px_50px_-28px_rgb(11_26_51/0.35)]">
-              <div className="flex items-center justify-between font-mono text-[11px] uppercase tracking-[0.14em] text-muted">
-                <span>{post.tag}</span><span>{post.date}</span>
-              </div>
-              <h3 className="mt-10 text-[22px] font-medium leading-snug">{post.title}</h3>
-              <span className="mt-auto inline-flex items-center gap-1.5 pt-10 text-sm text-teal-ink">
-                Read on analytx4t.com <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-              </span>
-            </a>
-          </Reveal>
-        ))}
-      </div>
-    </section>
-  );
-}
-
 /* ------------------------------------------------------------------ CTA */
 export function CTA() {
   return (
@@ -304,14 +277,14 @@ export function CTA() {
       <Reveal className="relative overflow-hidden rounded-[2rem] bg-ink px-6 py-20 text-paper sm:px-14 sm:py-28">
         <div className="absolute inset-0 opacity-70"><DataField tone="dark" density={0.6} chartArea={[0.5, 0.97]} /></div>
         <div className="relative max-w-2xl">
-          <Eyebrow className="text-mist">Start a project</Eyebrow>
+          <Eyebrow className="text-mist">Get started</Eyebrow>
           <h2 className="mt-6 text-[clamp(2.2rem,5vw,4.4rem)] font-medium leading-[1.02]">
             Have a process that eats <span className="accent-serif text-lime">hours</span> every month?
           </h2>
-          <p className="mt-6 max-w-lg text-lg text-mist">Tell us what it is. We'll come back with how we'd automate it, what it would take, and a working prototype plan.</p>
+          <p className="mt-6 max-w-lg text-lg text-mist">Sign up for the Workflow Automation portal and put invoices, bank reconciliations, trial balances and GST on autopilot.</p>
           <div className="mt-10 flex flex-wrap gap-3">
-            <Button to="/contact" variant="light" size="lg">Talk to us</Button>
-            <Button to="/signup" variant="outline-dark" size="lg" arrow={false}>Sign up</Button>
+            <Button to="/signup" variant="light" size="lg">Sign up</Button>
+            <Button to="/login" variant="outline-dark" size="lg" arrow={false}>Sign in</Button>
           </div>
         </div>
       </Reveal>

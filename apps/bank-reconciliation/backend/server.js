@@ -12,6 +12,9 @@ import { loadRows } from "./lib/parse.js";
 import { buildReconciliation, pdfModel } from "./lib/report.js";
 import { mailReport, SUBJECT } from "./lib/mail.js";
 import { buildWorkbook } from "./lib/excel.js";
+import { stream } from "./lib/deepseek.js";
+import { bankContext, BANK_SUGGESTIONS } from "./lib/chatContext.js";
+import { mountChat } from "../../_shared/server/chat.js";
 
 const ROOT = path.dirname(fileURLToPath(import.meta.url));
 const DATA = path.join(ROOT, "data", "reports");
@@ -153,6 +156,13 @@ const sendFile = (kind) => (req, res) => {
 app.get("/api/runs/:id/pdf", sendFile("pdf"));
 app.get("/api/runs/:id/xlsx", sendFile("xlsx"));
 app.get("/api/reports/:id/pdf", sendFile("pdf")); // backward-compatible link
+
+// chat with a processed reconciliation (DeepSeek, streamed)
+mountChat(app, {
+  stream, runDir, context: bankContext, suggestions: BANK_SUGGESTIONS,
+  assistant: "Reconciliation Assistant", product: "Bank Reconciliation",
+  limiter: rateLimit({ windowMs: 60 * 1000, max: 20, standardHeaders: true, legacyHeaders: false }),
+});
 
 app.post("/api/runs/:id/email", limiter, async (req, res) => {
   const dir = runDir(req.params.id);

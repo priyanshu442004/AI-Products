@@ -17,7 +17,7 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 
-const COLORS = ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6', '#ec4899', '#06b6d4', '#84cc16'];
+const COLORS = ['#4fb3ac', '#4fb3ac', '#b26f0b', '#b8432f', '#b5d661', '#b5d661', '#4fb3ac', '#b5d661'];
 
 /**
  * Auto-detect and render appropriate chart based on data structure
@@ -130,17 +130,17 @@ export function BarChartComponent({ data, title, dataKey = 'value', nameKey = 'n
       {title && <h4 className="text-md font-semibold text-gray-800 mb-3">{title}</h4>}
       <ResponsiveContainer width="100%" height={300}>
         <BarChart data={data} margin={{ top: 5, right: 20, left: 0, bottom: 5 }}>
-          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+          <CartesianGrid strokeDasharray="3 3" stroke="#dde3da" />
           <XAxis 
             dataKey={labelKey} 
-            stroke="#6b7280"
+            stroke="#566176"
             fontSize={12}
             angle={-45}
             textAnchor="end"
             height={80}
           />
           <YAxis 
-            stroke="#6b7280"
+            stroke="#566176"
             fontSize={12}
             tickFormatter={(value) => {
               if (Math.abs(value) >= 1000000) return `₹${(value / 1000000).toFixed(1)}M`;
@@ -150,7 +150,7 @@ export function BarChartComponent({ data, title, dataKey = 'value', nameKey = 'n
           />
           <Tooltip 
             formatter={(value) => [`₹${value.toLocaleString('en-IN')}`, '']}
-            contentStyle={{ backgroundColor: '#fff', border: '1px solid #e5e7eb', borderRadius: '8px' }}
+            contentStyle={{ backgroundColor: '#fff', border: '1px solid #dde3da', borderRadius: '8px' }}
           />
           {finalNumericKeys.map((key, index) => (
             <Bar 
@@ -201,7 +201,7 @@ export function PieChartComponent({ data, title, dataKey = 'value', nameKey = 'n
               `${name}: ₹${value.toLocaleString('en-IN')} (${(percent * 100).toFixed(0)}%)`
             }
             outerRadius={100}
-            fill="#8884d8"
+            fill="#4fb3ac"
             dataKey={valueKey}
           >
             {data.map((entry, index) => (
@@ -210,7 +210,7 @@ export function PieChartComponent({ data, title, dataKey = 'value', nameKey = 'n
           </Pie>
           <Tooltip 
             formatter={(value) => [`₹${value.toLocaleString('en-IN')}`, '']}
-            contentStyle={{ backgroundColor: '#fff', border: '1px solid #e5e7eb', borderRadius: '8px' }}
+            contentStyle={{ backgroundColor: '#fff', border: '1px solid #dde3da', borderRadius: '8px' }}
           />
         </PieChart>
       </ResponsiveContainer>
@@ -239,17 +239,17 @@ export function LineChartComponent({ data, title }) {
       {title && <h4 className="text-md font-semibold text-gray-800 mb-3">{title}</h4>}
       <ResponsiveContainer width="100%" height={300}>
         <LineChart data={data} margin={{ top: 5, right: 20, left: 0, bottom: 5 }}>
-          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+          <CartesianGrid strokeDasharray="3 3" stroke="#dde3da" />
           <XAxis 
             dataKey={labelKey} 
-            stroke="#6b7280"
+            stroke="#566176"
             fontSize={12}
             angle={-45}
             textAnchor="end"
             height={80}
           />
           <YAxis 
-            stroke="#6b7280"
+            stroke="#566176"
             fontSize={12}
             tickFormatter={(value) => {
               if (Math.abs(value) >= 1000000) return `₹${(value / 1000000).toFixed(1)}M`;
@@ -259,7 +259,7 @@ export function LineChartComponent({ data, title }) {
           />
           <Tooltip 
             formatter={(value) => [`₹${value.toLocaleString('en-IN')}`, '']}
-            contentStyle={{ backgroundColor: '#fff', border: '1px solid #e5e7eb', borderRadius: '8px' }}
+            contentStyle={{ backgroundColor: '#fff', border: '1px solid #dde3da', borderRadius: '8px' }}
           />
           <Legend />
           {numericKeys.map((key, index) => (
@@ -300,17 +300,17 @@ export function AreaChartComponent({ data, title }) {
       {title && <h4 className="text-md font-semibold text-gray-800 mb-3">{title}</h4>}
       <ResponsiveContainer width="100%" height={300}>
         <AreaChart data={data} margin={{ top: 5, right: 20, left: 0, bottom: 5 }}>
-          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+          <CartesianGrid strokeDasharray="3 3" stroke="#dde3da" />
           <XAxis 
             dataKey={labelKey} 
-            stroke="#6b7280"
+            stroke="#566176"
             fontSize={12}
             angle={-45}
             textAnchor="end"
             height={80}
           />
           <YAxis 
-            stroke="#6b7280"
+            stroke="#566176"
             fontSize={12}
             tickFormatter={(value) => {
               if (Math.abs(value) >= 1000000) return `₹${(value / 1000000).toFixed(1)}M`;
@@ -320,7 +320,7 @@ export function AreaChartComponent({ data, title }) {
           />
           <Tooltip 
             formatter={(value) => [`₹${value.toLocaleString('en-IN')}`, '']}
-            contentStyle={{ backgroundColor: '#fff', border: '1px solid #e5e7eb', borderRadius: '8px' }}
+            contentStyle={{ backgroundColor: '#fff', border: '1px solid #dde3da', borderRadius: '8px' }}
           />
           <Legend />
           {numericKeys.map((key, index) => (
@@ -359,10 +359,10 @@ export function ComparisonChart({ data, title }) {
       {title && <h4 className="text-md font-semibold text-gray-800 mb-3">{title}</h4>}
       <ResponsiveContainer width="100%" height={300}>
         <BarChart data={chartData} margin={{ top: 5, right: 20, left: 0, bottom: 5 }}>
-          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-          <XAxis dataKey="name" stroke="#6b7280" fontSize={12} />
+          <CartesianGrid strokeDasharray="3 3" stroke="#dde3da" />
+          <XAxis dataKey="name" stroke="#566176" fontSize={12} />
           <YAxis 
-            stroke="#6b7280"
+            stroke="#566176"
             fontSize={12}
             tickFormatter={(value) => {
               if (Math.abs(value) >= 1000000) return `₹${(value / 1000000).toFixed(1)}M`;
@@ -372,12 +372,12 @@ export function ComparisonChart({ data, title }) {
           />
           <Tooltip 
             formatter={(value) => [`₹${value.toLocaleString('en-IN')}`, '']}
-            contentStyle={{ backgroundColor: '#fff', border: '1px solid #e5e7eb', borderRadius: '8px' }}
+            contentStyle={{ backgroundColor: '#fff', border: '1px solid #dde3da', borderRadius: '8px' }}
           />
           <Legend />
-          {data.output && <Bar dataKey="output" fill="#3b82f6" radius={[8, 8, 0, 0]} name="Output" />}
-          {data.input && <Bar dataKey="input" fill="#10b981" radius={[8, 8, 0, 0]} name="Input" />}
-          {data.values && <Bar dataKey="value" fill="#8b5cf6" radius={[8, 8, 0, 0]} name="Value" />}
+          {data.output && <Bar dataKey="output" fill="#4fb3ac" radius={[8, 8, 0, 0]} name="Output" />}
+          {data.input && <Bar dataKey="input" fill="#4fb3ac" radius={[8, 8, 0, 0]} name="Input" />}
+          {data.values && <Bar dataKey="value" fill="#b5d661" radius={[8, 8, 0, 0]} name="Value" />}
         </BarChart>
       </ResponsiveContainer>
     </div>

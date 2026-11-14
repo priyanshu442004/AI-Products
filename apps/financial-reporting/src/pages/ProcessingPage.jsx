@@ -137,29 +137,29 @@ const ProcessingPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-[#F8FAFC] via-blue-50/20 to-purple-50/20 px-4 py-12">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-[#f3f5f1] via-blue-50/20 to-purple-50/20 px-4 py-12">
       <div className="w-full max-w-2xl mx-auto space-y-8">
 
         {/* ---------- LOADER ---------- */}
         <div className="flex flex-col items-center text-center">
           <div className="relative flex items-center justify-center mb-8">
-            <div className="absolute w-32 h-32 rounded-full bg-gradient-to-br from-[#1E40AF]/10 to-[#7C3AED]/10 animate-pulse"></div>
-            <div className="absolute w-24 h-24 rounded-full bg-gradient-to-br from-[#1E40AF]/20 to-[#7C3AED]/20 animate-ping"></div>
+            <div className="absolute w-32 h-32 rounded-full bg-gradient-to-br from-[#0b1a33]/10 to-[#4fb3ac]/10 animate-pulse"></div>
+            <div className="absolute w-24 h-24 rounded-full bg-gradient-to-br from-[#0b1a33]/20 to-[#4fb3ac]/20 animate-ping"></div>
 
             <div className="relative z-10 w-20 h-20">
-              <div className="absolute inset-0 rounded-full border-4 border-[#E5E7EB]"></div>
-              <div className="absolute inset-0 rounded-full border-4 border-transparent border-t-[#1E40AF] border-r-[#7C3AED] animate-spin"></div>
-              <div className="absolute inset-2 rounded-full border-2 border-transparent border-b-[#22D3EE] animate-spin" style={{ animationDirection: "reverse", animationDuration: "1.5s" }}></div>
+              <div className="absolute inset-0 rounded-full border-4 border-[#dde3da]"></div>
+              <div className="absolute inset-0 rounded-full border-4 border-transparent border-t-[#0b1a33] border-r-[#4fb3ac] animate-spin"></div>
+              <div className="absolute inset-2 rounded-full border-2 border-transparent border-b-[#4fb3ac] animate-spin" style={{ animationDirection: "reverse", animationDuration: "1.5s" }}></div>
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-3 h-3 rounded-full bg-gradient-to-br from-[#1E40AF] to-[#7C3AED] animate-pulse"></div>
+                <div className="w-3 h-3 rounded-full bg-gradient-to-br from-[#0b1a33] to-[#4fb3ac] animate-pulse"></div>
               </div>
             </div>
           </div>
 
-          <h1 className="text-3xl md:text-4xl font-bold text-[#0F172A] mb-3">
+          <h1 className="text-3xl md:text-4xl font-bold text-[#0b1a33] mb-3">
             Processing your Sales data…
           </h1>
-          <p className="text-base md:text-lg text-[#64748B] flex items-center gap-2 justify-center">
+          <p className="text-base md:text-lg text-[#566176] flex items-center gap-2 justify-center">
             <span className="inline-block w-2 h-2 rounded-full bg-blue-600 animate-ping"></span>
             Processing {files.length} file{files.length > 1 ? "s" : ""} in real-time
           </p>
@@ -167,12 +167,12 @@ const ProcessingPage = () => {
         </div>
 
         {/* ---------- PROGRESS ---------- */}
-        <div className="bg-white rounded-[20px] shadow-[0_8px_24px_rgba(0,0,0,0.08),0_2px_8px_rgba(0,0,0,0.04)] border border-[#E5E7EB] p-8 lg:p-10">
+        <div className="bg-white rounded-[20px] shadow-[0_8px_24px_rgba(0,0,0,0.08),0_2px_8px_rgba(0,0,0,0.04)] border border-[#dde3da] p-8 lg:p-10">
 
           <div className="relative">
-            <div className="absolute left-5 top-0 bottom-0 w-0.5 bg-[#E5E7EB]">
+            <div className="absolute left-5 top-0 bottom-0 w-0.5 bg-[#dde3da]">
               <div
-                className="absolute top-0 left-0 w-full bg-gradient-to-b from-[#1E40AF] to-[#7C3AED] transition-all duration-700 ease-out"
+                className="absolute top-0 left-0 w-full bg-gradient-to-b from-[#0b1a33] to-[#4fb3ac] transition-all duration-700 ease-out"
 
                 style={{ height: `${((currentStep + 1) / steps.length) * 100}%` }}
               />

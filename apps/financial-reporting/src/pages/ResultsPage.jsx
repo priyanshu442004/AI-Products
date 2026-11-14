@@ -172,7 +172,7 @@ const hasMore = visibleRows.length < filtered.length;
       className="
         group relative flex items-center gap-3 px-10 py-4
         rounded-2xl font-semibold text-white
-        bg-gradient-to-r from-[#1E40AF] to-[#7C3AED]
+        bg-gradient-to-r from-[#0b1a33] to-[#4fb3ac]
         shadow-[0_10px_30px_rgba(30,64,175,0.35)]
         hover:shadow-[0_15px_40px_rgba(30,64,175,0.5)]
         transition-all duration-300 ease-out
@@ -222,8 +222,8 @@ const hasMore = visibleRows.length < filtered.length;
   {/* CTA Card */}
   <div className="
     w-full max-w-3xl
-    bg-gradient-to-br from-[#EEF2FF] to-[#F5F3FF]
-    border border-[#E0E7FF]
+    bg-gradient-to-br from-[#eef6f5] to-[#eef6f5]
+    border border-[#eef6f5]
     rounded-3xl
     p-10
     shadow-[0_20px_50px_rgba(99,102,241,0.15)]
@@ -231,10 +231,10 @@ const hasMore = visibleRows.length < filtered.length;
     gap-8
   ">
     <div>
-      <h3 className="text-2xl font-bold text-[#1E3A8A] mb-2">
+      <h3 className="text-2xl font-bold text-[#0b1a33] mb-2">
         Upload another Sales Data
       </h3>
-      <p className="text-[#4F46E5]/80 max-w-md">
+      <p className="text-[#1d7a73]/80 max-w-md">
         Process another Excel or CSV file and generate a fresh MIS instantly with AI-powered validation.
       </p>
     </div>
@@ -243,7 +243,7 @@ const hasMore = visibleRows.length < filtered.length;
       onClick={() => navigate("/dashboard/upload")}
       className="
         px-10 py-4 rounded-2xl font-semibold text-white
-        bg-gradient-to-r from-[#1E40AF] to-[#7C3AED]
+        bg-gradient-to-r from-[#0b1a33] to-[#4fb3ac]
         shadow-[0_10px_30px_rgba(30,64,175,0.35)]
         hover:shadow-[0_15px_40px_rgba(30,64,175,0.5)]
         transition-all duration-300

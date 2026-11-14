@@ -1,4 +1,4 @@
-// Virtual CFO chat: DeepSeek answers from the four uploaded statements (+ the
+// Financial Statement Analysis chat: DeepSeek answers from the four uploaded statements (+ the
 // computed metrics), like a CFO. Concise, formatted for the reader.
 import { stream } from "./deepseek.js";
 

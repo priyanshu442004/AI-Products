@@ -70,17 +70,17 @@ const DashboardPage = () => {
   }));
 
   return (
-    <div className="flex h-screen bg-gradient-to-br from-[#F8FAFC] via-blue-50/20 to-purple-50/20 font-sans">
+    <div className="flex h-screen bg-gradient-to-br from-[#f3f5f1] via-blue-50/20 to-purple-50/20 font-sans">
       {/* ------------------ SIDEBAR ------------------ */}
 
 
       {/* ------------------ MAIN CONTENT ------------------ */}
       <main className="flex-1 flex flex-col overflow-hidden">
         {/* ---------- TOP BAR ---------- */}
-        <header className="flex items-center justify-between bg-[#FFFFFF]/80 backdrop-blur-xl px-6 lg:px-8 py-4 lg:py-5 shadow-premium border-b border-[#E5E7EB]/50">
-          <h1 className="text-lg md:text-xl lg:text-2xl font-semibold text-[#0F172A] tracking-[-0.01em] leading-[1.3]">
-            Financial Reporting
-            <span className="block text-sm font-normal text-[#64748B] mt-0.5">Trial balance to Schedule III statements, notes and AI insights</span>
+        <header className="flex items-center justify-between bg-[#FFFFFF]/80 backdrop-blur-xl px-6 lg:px-8 py-4 lg:py-5 shadow-premium border-b border-[#dde3da]/50">
+          <h1 className="text-lg md:text-xl lg:text-2xl font-semibold text-[#0b1a33] tracking-[-0.01em] leading-[1.3]">
+            Trial Balance
+            <span className="block text-sm font-normal text-[#566176] mt-0.5">Trial balance to Schedule III statements, notes and AI insights</span>
           </h1>
 
           <div className="flex items-center space-x-4">
@@ -214,7 +214,7 @@ const DashboardPage = () => {
             {analytics.map((card, i) => (
               <div
                 key={i}
-                className="group bg-[#FFFFFF] p-6 rounded-[14px] shadow-[0_1px_3px_rgba(0,0,0,0.08)] border border-[#E5E7EB]/60 hover:shadow-[0_8px_24px_rgba(0,0,0,0.12)] hover:border-[#E5E7EB] hover:-translate-y-1 transition-all duration-300"
+                className="group bg-[#FFFFFF] p-6 rounded-[14px] shadow-[0_1px_3px_rgba(0,0,0,0.08)] border border-[#dde3da]/60 hover:shadow-[0_8px_24px_rgba(0,0,0,0.12)] hover:border-[#dde3da] hover:-translate-y-1 transition-all duration-300"
               >
                 <div className="flex items-start justify-between mb-4">
                   <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-3 rounded-xl group-hover:scale-110 transition-transform duration-300">
@@ -222,8 +222,8 @@ const DashboardPage = () => {
                   </div>
                 </div>
                 <div>
-                  <p className="text-[#475569] text-sm font-medium mb-2">{card.title}</p>
-                  <h2 className="text-2xl md:text-3xl font-bold text-[#0F172A] tracking-[-0.01em] leading-[1.2]">
+                  <p className="text-[#3a4659] text-sm font-medium mb-2">{card.title}</p>
+                  <h2 className="text-2xl md:text-3xl font-bold text-[#0b1a33] tracking-[-0.01em] leading-[1.2]">
                     {card.value}
                   </h2>
                 </div>
@@ -232,9 +232,9 @@ const DashboardPage = () => {
           </div>
 
             {/* ---- B. RECENT UPLOADS TABLE ---- */}
-            <div className="bg-[#FFFFFF] rounded-[14px] shadow-[0_1px_3px_rgba(0,0,0,0.08)] border border-[#E5E7EB]/60 overflow-hidden">
-              <div className="px-5 lg:px-6 py-4 lg:py-5 border-b border-[#E5E7EB] bg-gradient-to-r from-[#F8FAFC]/50 to-transparent">
-                <h3 className="text-base lg:text-lg font-semibold text-[#0F172A] tracking-[-0.01em] leading-[1.3]">
+            <div className="bg-[#FFFFFF] rounded-[14px] shadow-[0_1px_3px_rgba(0,0,0,0.08)] border border-[#dde3da]/60 overflow-hidden">
+              <div className="px-5 lg:px-6 py-4 lg:py-5 border-b border-[#dde3da] bg-gradient-to-r from-[#f3f5f1]/50 to-transparent">
+                <h3 className="text-base lg:text-lg font-semibold text-[#0b1a33] tracking-[-0.01em] leading-[1.3]">
                   Recent Uploads
                 </h3>
               </div>
@@ -242,27 +242,27 @@ const DashboardPage = () => {
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-sm">
                   <thead>
-                    <tr className="text-[#475569] bg-[#F8FAFC]/80 border-b border-[#E5E7EB]">
+                    <tr className="text-[#3a4659] bg-[#f3f5f1]/80 border-b border-[#dde3da]">
                       <th className="py-3 lg:py-4 px-4 lg:px-6 font-semibold text-xs uppercase tracking-wider">Document Name</th>
                       <th className="py-3 lg:py-4 px-4 lg:px-6 font-semibold text-xs uppercase tracking-wider">Upload Time</th>
                       <th className="py-3 lg:py-4 px-4 lg:px-6 font-semibold text-xs uppercase tracking-wider">Status</th>
                       {/* <th className="py-3 lg:py-4 px-4 lg:px-6 font-semibold text-xs uppercase tracking-wider">Actions</th> */}
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-[#E5E7EB]">
+                  <tbody className="divide-y divide-[#dde3da]">
                     {activity && recentUploads.length === 0 && (
-                      <tr><td colSpan={3} className="py-8 px-6 text-center text-[#64748B]">No uploads yet. Upload a trial balance to get started.</td></tr>
+                      <tr><td colSpan={3} className="py-8 px-6 text-center text-[#566176]">No uploads yet. Upload a trial balance to get started.</td></tr>
                     )}
                     {recentUploads.map((file, index) => (
                       <tr
                         key={index}
                         className="bg-[#FFFFFF] hover:bg-blue-50/30 transition-colors duration-150"
                       >
-                        <td className="py-3 lg:py-4 px-4 lg:px-6 font-medium text-[#0F172A]">
+                        <td className="py-3 lg:py-4 px-4 lg:px-6 font-medium text-[#0b1a33]">
                           {file.name}
-                          <span className="block text-xs font-normal text-[#64748B]">{file.detail}</span>
+                          <span className="block text-xs font-normal text-[#566176]">{file.detail}</span>
                         </td>
-                        <td className="py-3 lg:py-4 px-4 lg:px-6 text-[#475569]">{file.time}</td>
+                        <td className="py-3 lg:py-4 px-4 lg:px-6 text-[#3a4659]">{file.time}</td>
                         <td className="py-3 lg:py-4 px-4 lg:px-6">
                           <span
                             className={`inline-flex px-3 py-1.5 text-xs font-semibold rounded-full ${
@@ -298,14 +298,14 @@ const DashboardPage = () => {
             <div className="flex flex-wrap gap-3 lg:gap-4 justify-center lg:justify-end pt-2">
               <button 
                 onClick={() => navigate("/dashboard/upload")}
-                className="bg-gradient-to-r from-[#2563EB] to-[#7C3AED] hover:from-[#1d4ed8] hover:to-[#6d28d9] text-white px-6 py-3 rounded-xl font-semibold shadow-lg shadow-[#2563EB]/30 hover:shadow-xl hover:shadow-[#2563EB]/40 transform hover:scale-[1.02] transition-all duration-300"
+                className="bg-gradient-to-r from-[#1d7a73] to-[#4fb3ac] hover:from-[#1b315e] hover:to-[#1b315e] text-white px-6 py-3 rounded-xl font-semibold shadow-lg shadow-[#1d7a73]/30 hover:shadow-xl hover:shadow-[#1d7a73]/40 transform hover:scale-[1.02] transition-all duration-300"
               >
                 Upload Document
               </button>
-              <button onClick={() => navigate("/dashboard/history")} className="border-2 border-[#E5E7EB] hover:border-[#E5E7EB] text-[#475569] px-6 py-3 rounded-xl font-semibold hover:bg-[#F8FAFC] transition-all duration-200 shadow-sm hover:shadow-md">
+              <button onClick={() => navigate("/dashboard/history")} className="border-2 border-[#dde3da] hover:border-[#dde3da] text-[#3a4659] px-6 py-3 rounded-xl font-semibold hover:bg-[#f3f5f1] transition-all duration-200 shadow-sm hover:shadow-md">
                 View All Documents
               </button>
-              <button onClick={() => navigate("/dashboard/support")} className="border-2 border-blue-200 hover:border-blue-300 text-[#2563EB] px-6 py-3 rounded-xl font-semibold hover:bg-blue-50 transition-all duration-200 shadow-sm hover:shadow-md">
+              <button onClick={() => navigate("/dashboard/support")} className="border-2 border-blue-200 hover:border-blue-300 text-[#1d7a73] px-6 py-3 rounded-xl font-semibold hover:bg-blue-50 transition-all duration-200 shadow-sm hover:shadow-md">
                 Support
               </button>
             </div>
@@ -322,16 +322,16 @@ const SidebarLink = ({ icon, label, active, onClick }) => (
     onClick={onClick}
     className={`relative flex items-center w-full px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 text-left group ${
       active 
-        ? "text-[#2563EB] bg-[#EFF6FF]/60" 
-        : "text-[#64748B] hover:text-[#0F172A] hover:bg-[#F8FAFC]"
+        ? "text-[#1d7a73] bg-[#eef6f5]/60" 
+        : "text-[#566176] hover:text-[#0b1a33] hover:bg-[#f3f5f1]"
     }`}
   >
     {/* Subtle active indicator */}
     {active && (
-      <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-[#2563EB] rounded-r-full"></div>
+      <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-[#1d7a73] rounded-r-full"></div>
     )}
     <span className={`flex-shrink-0 mr-3 transition-colors duration-200 ${
-      active ? 'text-[#2563EB]' : 'text-[#94A3B8] group-hover:text-[#475569]'
+      active ? 'text-[#1d7a73]' : 'text-[#9aa7bd] group-hover:text-[#3a4659]'
     }`}>
       {icon}
     </span>

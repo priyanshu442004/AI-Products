@@ -8,7 +8,7 @@ import Chat from "../components/Chat";
 import { SLOTS } from "./NewAnalysis";
 
 const STATUS_TONE = { Good: "good", Watch: "warn", Mixed: "warn", Low: "bad" };
-const TABS = [["report", "Health report"], ["statements", "Statements & ratios"], ["documents", "Documents"], ["chat", "CFO chat"]];
+const TABS = [["report", "Health report"], ["statements", "Statements & ratios"], ["documents", "Documents"], ["chat", "Ask AI"]];
 
 export default function Workspace() {
   const { id, tab = "report" } = useParams();

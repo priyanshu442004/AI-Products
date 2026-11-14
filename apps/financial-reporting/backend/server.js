@@ -88,7 +88,7 @@ app.use((req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`🚀 Financial Reporting API running on port ${PORT}`);
+  console.log(`🚀 Trial Balance API running on port ${PORT}`);
   console.log(`📝 Environment: ${process.env.NODE_ENV || 'development'}`);
 });
 

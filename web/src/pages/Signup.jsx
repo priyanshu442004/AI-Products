@@ -3,10 +3,10 @@ import { Link } from "react-router";
 import { AnimatePresence, motion } from "motion/react";
 import AuthShell from "../components/AuthShell";
 import { Button, EASE } from "../components/ui";
-import { Field } from "./Contact";
+import { Field } from "../components/Field";
 import { company } from "../lib/content";
 
-// Accounts are provisioned by the Analytx4t team during the pilot, so sign-up
+// Accounts are provisioned by the Agarwal & Saxena team during the pilot, so sign-up
 // is a request-access form. It hands off to email until a backend exists.
 export default function Signup() {
   const [done, setDone] = useState(false);
@@ -25,7 +25,7 @@ export default function Signup() {
         {done ? (
           <motion.div key="done" initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: EASE }}>
             <h1 className="text-[2.6rem] font-medium leading-[1.02] tracking-[-0.03em]">Request ready.</h1>
-            <p className="mt-4 text-muted">We opened your email app with the request filled in. Once it's sent, the Analytx4t team will set up your account and reply with sign-in details.</p>
+            <p className="mt-4 text-muted">We opened your email app with the request filled in. Once it's sent, the Agarwal & Saxena team will set up your account and reply with sign-in details.</p>
             <div className="mt-10"><Button to="/login">Go to sign in</Button></div>
           </motion.div>
         ) : (

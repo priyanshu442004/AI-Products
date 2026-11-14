@@ -17,7 +17,7 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 
-const COLORS = ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6', '#ec4899'];
+const COLORS = ['#4fb3ac', '#4fb3ac', '#b26f0b', '#b8432f', '#b5d661', '#b5d661'];
 
 /**
  * Balance Trend Chart - Shows balance over time
@@ -44,29 +44,29 @@ export function BalanceTrendChart({ transactions }) {
       <h3 className="text-lg font-semibold text-gray-800 mb-4">Balance Trend</h3>
       <ResponsiveContainer width="100%" height={300}>
         <AreaChart data={chartData}>
-          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+          <CartesianGrid strokeDasharray="3 3" stroke="#dde3da" />
           <XAxis 
             dataKey="date" 
-            stroke="#6b7280"
+            stroke="#566176"
             fontSize={12}
             angle={-45}
             textAnchor="end"
             height={80}
           />
           <YAxis 
-            stroke="#6b7280"
+            stroke="#566176"
             fontSize={12}
             tickFormatter={(value) => `₹${(value / 1000).toFixed(0)}k`}
           />
           <Tooltip 
             formatter={(value) => [`₹${value.toLocaleString('en-IN')}`, 'Balance']}
-            contentStyle={{ backgroundColor: '#fff', border: '1px solid #e5e7eb', borderRadius: '8px' }}
+            contentStyle={{ backgroundColor: '#fff', border: '1px solid #dde3da', borderRadius: '8px' }}
           />
           <Area 
             type="monotone" 
             dataKey="balance" 
-            stroke="#3b82f6" 
-            fill="#3b82f6" 
+            stroke="#4fb3ac" 
+            fill="#4fb3ac" 
             fillOpacity={0.3}
             strokeWidth={2}
           />
@@ -93,17 +93,17 @@ export function IncomeExpenseChart({ summary, transactions }) {
       {
         name: 'Credits',
         amount: credits,
-        fill: '#10b981',
+        fill: '#4fb3ac',
       },
       {
         name: 'Debits',
         amount: debits,
-        fill: '#ef4444',
+        fill: '#b8432f',
       },
       {
         name: 'Net',
         amount: credits - debits,
-        fill: '#3b82f6',
+        fill: '#4fb3ac',
       },
     ];
     
@@ -112,10 +112,10 @@ export function IncomeExpenseChart({ summary, transactions }) {
         <h3 className="text-lg font-semibold text-gray-800 mb-4">Income vs Expenses</h3>
         <ResponsiveContainer width="100%" height={300}>
           <BarChart data={chartData}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-            <XAxis dataKey="name" stroke="#6b7280" fontSize={12} />
+            <CartesianGrid strokeDasharray="3 3" stroke="#dde3da" />
+            <XAxis dataKey="name" stroke="#566176" fontSize={12} />
             <YAxis 
-              stroke="#6b7280"
+              stroke="#566176"
               fontSize={12}
               tickFormatter={(value) => {
                 if (Math.abs(value) >= 1000000) return `₹${(value / 1000000).toFixed(1)}M`;
@@ -125,7 +125,7 @@ export function IncomeExpenseChart({ summary, transactions }) {
             />
             <Tooltip 
               formatter={(value) => [`₹${value.toLocaleString('en-IN')}`, 'Amount']}
-              contentStyle={{ backgroundColor: '#fff', border: '1px solid #e5e7eb', borderRadius: '8px' }}
+              contentStyle={{ backgroundColor: '#fff', border: '1px solid #dde3da', borderRadius: '8px' }}
             />
             <Bar dataKey="amount" radius={[8, 8, 0, 0]}>
               {chartData.map((entry, index) => (
@@ -142,17 +142,17 @@ export function IncomeExpenseChart({ summary, transactions }) {
     {
       name: 'Credits',
       amount: summary.total_credits || 0,
-      fill: '#10b981',
+      fill: '#4fb3ac',
     },
     {
       name: 'Debits',
       amount: summary.total_debits || 0,
-      fill: '#ef4444',
+      fill: '#b8432f',
     },
     {
       name: 'Net',
       amount: (summary.total_credits || 0) - (summary.total_debits || 0),
-      fill: '#3b82f6',
+      fill: '#4fb3ac',
     },
   ];
   
@@ -164,16 +164,16 @@ export function IncomeExpenseChart({ summary, transactions }) {
       <h3 className="text-lg font-semibold text-gray-800 mb-4">Income vs Expenses</h3>
       <ResponsiveContainer width="100%" height={300}>
         <BarChart data={chartData}>
-          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-          <XAxis dataKey="name" stroke="#6b7280" fontSize={12} />
+          <CartesianGrid strokeDasharray="3 3" stroke="#dde3da" />
+          <XAxis dataKey="name" stroke="#566176" fontSize={12} />
           <YAxis 
-            stroke="#6b7280"
+            stroke="#566176"
             fontSize={12}
             tickFormatter={(value) => `₹${(value / 1000).toFixed(0)}k`}
           />
           <Tooltip 
             formatter={(value) => [`₹${value.toLocaleString('en-IN')}`, 'Amount']}
-            contentStyle={{ backgroundColor: '#fff', border: '1px solid #e5e7eb', borderRadius: '8px' }}
+            contentStyle={{ backgroundColor: '#fff', border: '1px solid #dde3da', borderRadius: '8px' }}
           />
           <Bar dataKey="amount" radius={[8, 8, 0, 0]}>
             {chartData.map((entry, index) => (
@@ -207,8 +207,8 @@ export function TransactionTypeChart({ transactions }) {
   if (creditCount === 0 && debitCount === 0) return null;
 
   const chartData = [
-    { name: 'Credits', value: creditCount, fill: '#10b981' },
-    { name: 'Debits', value: debitCount, fill: '#ef4444' },
+    { name: 'Credits', value: creditCount, fill: '#4fb3ac' },
+    { name: 'Debits', value: debitCount, fill: '#b8432f' },
   ];
 
   return (
@@ -223,7 +223,7 @@ export function TransactionTypeChart({ transactions }) {
             labelLine={false}
             label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
             outerRadius={100}
-            fill="#8884d8"
+            fill="#4fb3ac"
             dataKey="value"
           >
             {chartData.map((entry, index) => (
@@ -288,22 +288,22 @@ export function CashFlowChart({ transactions, summary }) {
       <h3 className="text-lg font-semibold text-gray-800 mb-4">Monthly Cash Flow</h3>
       <ResponsiveContainer width="100%" height={300}>
         <LineChart data={chartData}>
-          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-          <XAxis dataKey="month" stroke="#6b7280" fontSize={12} />
+          <CartesianGrid strokeDasharray="3 3" stroke="#dde3da" />
+          <XAxis dataKey="month" stroke="#566176" fontSize={12} />
           <YAxis 
-            stroke="#6b7280"
+            stroke="#566176"
             fontSize={12}
             tickFormatter={(value) => `₹${(value / 1000).toFixed(0)}k`}
           />
           <Tooltip 
             formatter={(value) => [`₹${value.toLocaleString('en-IN')}`, '']}
-            contentStyle={{ backgroundColor: '#fff', border: '1px solid #e5e7eb', borderRadius: '8px' }}
+            contentStyle={{ backgroundColor: '#fff', border: '1px solid #dde3da', borderRadius: '8px' }}
           />
           <Legend />
           <Line 
             type="monotone" 
             dataKey="credits" 
-            stroke="#10b981" 
+            stroke="#4fb3ac" 
             strokeWidth={2}
             name="Credits"
             dot={{ r: 4 }}
@@ -311,7 +311,7 @@ export function CashFlowChart({ transactions, summary }) {
           <Line 
             type="monotone" 
             dataKey="debits" 
-            stroke="#ef4444" 
+            stroke="#b8432f" 
             strokeWidth={2}
             name="Debits"
             dot={{ r: 4 }}
@@ -319,7 +319,7 @@ export function CashFlowChart({ transactions, summary }) {
           <Line 
             type="monotone" 
             dataKey="net" 
-            stroke="#3b82f6" 
+            stroke="#4fb3ac" 
             strokeWidth={2}
             name="Net Cash Flow"
             dot={{ r: 4 }}
@@ -356,17 +356,17 @@ export function DailyTransactionChart({ transactions }) {
       <h3 className="text-lg font-semibold text-gray-800 mb-4">Daily Transaction Volume</h3>
       <ResponsiveContainer width="100%" height={300}>
         <BarChart data={chartData}>
-          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+          <CartesianGrid strokeDasharray="3 3" stroke="#dde3da" />
           <XAxis 
             dataKey="date" 
-            stroke="#6b7280"
+            stroke="#566176"
             fontSize={12}
             angle={-45}
             textAnchor="end"
             height={80}
           />
           <YAxis 
-            stroke="#6b7280"
+            stroke="#566176"
             fontSize={12}
           />
           <Tooltip 
@@ -374,10 +374,10 @@ export function DailyTransactionChart({ transactions }) {
               name === 'count' ? value : `₹${value.toLocaleString('en-IN')}`,
               name === 'count' ? 'Transactions' : 'Amount'
             ]}
-            contentStyle={{ backgroundColor: '#fff', border: '1px solid #e5e7eb', borderRadius: '8px' }}
+            contentStyle={{ backgroundColor: '#fff', border: '1px solid #dde3da', borderRadius: '8px' }}
           />
           <Legend />
-          <Bar dataKey="count" fill="#8b5cf6" radius={[8, 8, 0, 0]} name="Transaction Count" />
+          <Bar dataKey="count" fill="#b5d661" radius={[8, 8, 0, 0]} name="Transaction Count" />
         </BarChart>
       </ResponsiveContainer>
     </div>

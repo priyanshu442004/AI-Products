@@ -3,7 +3,7 @@ import { Link, useNavigate, useSearchParams } from "react-router";
 import { AnimatePresence, motion, useAnimationControls } from "motion/react";
 import AuthShell from "../components/AuthShell";
 import { Button, EASE } from "../components/ui";
-import { Field } from "./Contact";
+import { Field } from "../components/Field";
 import { login } from "../lib/auth";
 
 export default function Login() {
@@ -34,7 +34,7 @@ export default function Login() {
     <AuthShell>
       <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: EASE }}>
         <h1 className="text-[2.6rem] font-medium leading-[1.02] tracking-[-0.03em]">Welcome back.</h1>
-        <p className="mt-3 text-muted">Sign in to open your Analytx4t products.</p>
+        <p className="mt-3 text-muted">Sign in to open your Workflow Automation products.</p>
 
         <motion.form animate={shake} onSubmit={submit} className="mt-10 space-y-7" noValidate>
           <Field name="email" type="email" label="Email" autoComplete="username" required onChange={() => setError("")} />

@@ -18,14 +18,14 @@ import {
 } from 'recharts';
 
 const COLORS = {
-  revenue: '#3b82f6',
-  cogs: '#10b981',
-  sales: '#1e40af',
-  marketing: '#3b82f6',
-  admin: '#10b981',
-  ebitActual: '#3b82f6',
-  ebitTarget: '#10b981',
-  opexRatio: '#8b5cf6',
+  revenue: '#4fb3ac',
+  cogs: '#4fb3ac',
+  sales: '#0b1a33',
+  marketing: '#4fb3ac',
+  admin: '#4fb3ac',
+  ebitActual: '#4fb3ac',
+  ebitTarget: '#4fb3ac',
+  opexRatio: '#b5d661',
 };
 
 /**
@@ -52,7 +52,7 @@ const CustomTooltip = ({ active, payload, label }) => {
 /**
  * Gauge Chart Component - Circular progress indicator with hover effects
  */
-export function GaugeChart({ value, label, maxValue = 100, color = '#3b82f6' }) {
+export function GaugeChart({ value, label, maxValue = 100, color = '#4fb3ac' }) {
   const [isHovered, setIsHovered] = useState(false);
   const percentage = Math.min((value / maxValue) * 100, 100);
   const circumference = 2 * Math.PI * 45; // radius = 45
@@ -60,9 +60,9 @@ export function GaugeChart({ value, label, maxValue = 100, color = '#3b82f6' }) 
   
   // Determine color based on percentage
   let gaugeColor = color;
-  if (percentage >= 70) gaugeColor = '#10b981'; // Green
-  else if (percentage >= 40) gaugeColor = '#f59e0b'; // Orange
-  else gaugeColor = '#ef4444'; // Red
+  if (percentage >= 70) gaugeColor = '#4fb3ac'; // Green
+  else if (percentage >= 40) gaugeColor = '#b26f0b'; // Orange
+  else gaugeColor = '#b8432f'; // Red
 
   return (
     <div 
@@ -79,7 +79,7 @@ export function GaugeChart({ value, label, maxValue = 100, color = '#3b82f6' }) 
             cx="50%"
             cy="50%"
             r="45"
-            stroke="#e5e7eb"
+            stroke="#dde3da"
             strokeWidth="10"
             fill="none"
           />
@@ -142,17 +142,17 @@ export function RevenueCOGSChart({ data = [] }) {
           }}
           onMouseLeave={() => setHoveredBar(null)}
         >
-          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+          <CartesianGrid strokeDasharray="3 3" stroke="#dde3da" />
           <XAxis 
             dataKey="month" 
-            stroke="#6b7280"
+            stroke="#566176"
             fontSize={12}
             angle={-45}
             textAnchor="end"
             height={80}
           />
           <YAxis 
-            stroke="#6b7280"
+            stroke="#566176"
             fontSize={12}
             tickFormatter={(value) => {
               if (Math.abs(value) >= 1000000) return `₹${(value / 1000000).toFixed(1)}M`;
@@ -233,7 +233,7 @@ export function OPEXBreakdownChart({ data = {} }) {
       <text
         x={x + width / 2}
         y={y - 5}
-        fill="#374151"
+        fill="#3a4659"
         textAnchor="middle"
         fontSize={11}
         fontWeight="600"
@@ -279,28 +279,28 @@ export function OPEXBreakdownChart({ data = {} }) {
           >
             <defs>
               <linearGradient id="salesGradient" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#1e40af" stopOpacity={1}/>
-                <stop offset="100%" stopColor="#3b82f6" stopOpacity={0.8}/>
+                <stop offset="0%" stopColor="#0b1a33" stopOpacity={1}/>
+                <stop offset="100%" stopColor="#4fb3ac" stopOpacity={0.8}/>
               </linearGradient>
               <linearGradient id="marketingGradient" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#3b82f6" stopOpacity={1}/>
-                <stop offset="100%" stopColor="#60a5fa" stopOpacity={0.8}/>
+                <stop offset="0%" stopColor="#4fb3ac" stopOpacity={1}/>
+                <stop offset="100%" stopColor="#8fcbc5" stopOpacity={0.8}/>
               </linearGradient>
               <linearGradient id="adminGradient" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#10b981" stopOpacity={1}/>
-                <stop offset="100%" stopColor="#34d399" stopOpacity={0.8}/>
+                <stop offset="0%" stopColor="#4fb3ac" stopOpacity={1}/>
+                <stop offset="100%" stopColor="#4fb3ac" stopOpacity={0.8}/>
               </linearGradient>
             </defs>
-            <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" opacity={0.5} />
+            <CartesianGrid strokeDasharray="3 3" stroke="#dde3da" opacity={0.5} />
             <XAxis 
               dataKey="name" 
-              stroke="#6b7280" 
+              stroke="#566176" 
               fontSize={12}
               width={80}
             />
             <YAxis 
               type="number"
-              stroke="#6b7280"
+              stroke="#566176"
               fontSize={12}
               tickFormatter={(value) => {
                 if (Math.abs(value) >= 1000000) return `₹${(value / 1000000).toFixed(1)}M`;
@@ -407,7 +407,7 @@ export function OPEXBreakdownChart({ data = {} }) {
                 );
               }}
               outerRadius={80}
-              fill="#8884d8"
+              fill="#4fb3ac"
               dataKey="value"
               animationDuration={800}
             >
@@ -508,17 +508,17 @@ export function EBITChart({ data = [] }) {
           }}
           onMouseLeave={() => setHoveredIndex(null)}
         >
-          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+          <CartesianGrid strokeDasharray="3 3" stroke="#dde3da" />
           <XAxis 
             dataKey="month" 
-            stroke="#6b7280"
+            stroke="#566176"
             fontSize={12}
             angle={-45}
             textAnchor="end"
             height={80}
           />
           <YAxis 
-            stroke="#6b7280"
+            stroke="#566176"
             fontSize={12}
             tickFormatter={(value) => {
               if (Math.abs(value) >= 1000000) return `₹${(value / 1000000).toFixed(1)}M`;
@@ -696,31 +696,31 @@ export function OPEXMonthToMonthChart({ data = [] }) {
         >
           <defs>
             <linearGradient id="salesGradient" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#1e40af" stopOpacity={0.9}/>
-              <stop offset="100%" stopColor="#3b82f6" stopOpacity={0.6}/>
+              <stop offset="0%" stopColor="#0b1a33" stopOpacity={0.9}/>
+              <stop offset="100%" stopColor="#4fb3ac" stopOpacity={0.6}/>
             </linearGradient>
             <linearGradient id="marketingGradient" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#3b82f6" stopOpacity={0.9}/>
-              <stop offset="100%" stopColor="#60a5fa" stopOpacity={0.6}/>
+              <stop offset="0%" stopColor="#4fb3ac" stopOpacity={0.9}/>
+              <stop offset="100%" stopColor="#8fcbc5" stopOpacity={0.6}/>
             </linearGradient>
             <linearGradient id="adminGradient" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#10b981" stopOpacity={0.9}/>
-              <stop offset="100%" stopColor="#34d399" stopOpacity={0.6}/>
+              <stop offset="0%" stopColor="#4fb3ac" stopOpacity={0.9}/>
+              <stop offset="100%" stopColor="#4fb3ac" stopOpacity={0.6}/>
             </linearGradient>
           </defs>
-          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" opacity={0.5} />
+          <CartesianGrid strokeDasharray="3 3" stroke="#dde3da" opacity={0.5} />
           <XAxis 
             dataKey="month" 
-            stroke="#6b7280"
+            stroke="#566176"
             fontSize={11}
             angle={-45}
             textAnchor="end"
             height={80}
-            tick={{ fill: '#6b7280' }}
+            tick={{ fill: '#566176' }}
           />
           <YAxis 
             yAxisId="left"
-            stroke="#6b7280"
+            stroke="#566176"
             fontSize={12}
             tickFormatter={(value) => {
               if (Math.abs(value) >= 1000000) return `₹${(value / 1000000).toFixed(1)}M`;
@@ -731,7 +731,7 @@ export function OPEXMonthToMonthChart({ data = [] }) {
           <YAxis 
             yAxisId="right"
             orientation="right"
-            stroke="#6b7280"
+            stroke="#566176"
             fontSize={12}
             tickFormatter={(value) => `${value}%`}
           />
@@ -2584,25 +2584,25 @@ export function TrialBalanceDashboard({ financialData = {} }) {
           value={parseInt(grossProfitMargin)} 
           label="Gross Profit Margin" 
           maxValue={100}
-          color="#3b82f6"
+          color="#4fb3ac"
         />
         <GaugeChart 
           value={parseInt(opexRatio)} 
           label="OPEX Ratio" 
           maxValue={100}
-          color="#f59e0b"
+          color="#b26f0b"
         />
         <GaugeChart 
           value={parseInt(operatingProfitMargin)} 
           label="Operating Profit Margin" 
           maxValue={100}
-          color="#10b981"
+          color="#4fb3ac"
         />
         <GaugeChart 
           value={parseInt(netProfitMargin)} 
           label="Net Profit Margin" 
           maxValue={100}
-          color="#8b5cf6"
+          color="#b5d661"
         />
       </div>
 

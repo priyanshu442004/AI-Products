@@ -9,7 +9,7 @@ export default function StatusPill({ status, dark = true, className = "" }) {
   return (
     <span className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.14em] ${tone} ${className}`}>
       <span className={`size-1.5 rounded-full bg-current ${live ? "pulse-dot" : "opacity-60"}`} />
-      {live ? "Live" : "In development"}
+      {live ? "Live" : "Coming soon"}
     </span>
   );
 }

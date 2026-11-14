@@ -5,7 +5,7 @@ const S = `${import.meta.env.BASE_URL}samples/`;
 export default function Help() {
   return (
     <>
-      <PageHeader eyebrow="Help & documents" title="How the Virtual CFO works" actions={<Btn to="/new" icon="plus">New analysis</Btn>}>
+      <PageHeader eyebrow="Help & documents" title="How Financial Statement Analysis works" actions={<Btn to="/new" icon="plus">New analysis</Btn>}>
         What to upload, how the health score is built, and how the chat answers.
       </PageHeader>
       <Steps items={[["Upload in order", "Balance Sheet → P&L → Cash Flow → Ratio Analysis (text-based PDFs)."], ["Extract & check", "DeepSeek reads the line items; totals are checked (e.g. PAT = PBT − tax)."], ["Score", "Six dimensions rated; ratios from the auditor's note, computed if absent."], ["Report & chat", "PDF emailed automatically; chat answers from the documents."]]} />

@@ -154,8 +154,29 @@ export function ArrowUpRight({ className = "size-4", ...p }) {
   );
 }
 
-/* Brand logo — the client's own mark. `light` adds a paper chip behind it for navy grounds. */
+/* Brand logo — Agarwal & Saxena, Chartered Accountants (vector, crisp at any size).
+   `light` uses the white-ink version for navy grounds. */
 export function Logo({ className = "h-9", light = false }) {
-  const img = <img src="/analytx4t-logo.png" alt="Analytx4t — Analytics for Transformation" className={`w-auto ${className}`} width="1100" height="410" />;
-  return light ? <span className="inline-flex rounded-lg bg-paper px-2.5 py-1.5">{img}</span> : img;
+  return (
+    <img
+      src={light ? "/agarwal-saxena-logo-light.svg" : "/agarwal-saxena-logo.svg"}
+      alt="Agarwal & Saxena — Chartered Accountants"
+      className={`w-auto ${className}`}
+      width="2600" height="350"
+    />
+  );
+}
+
+/* Portal wordmark shown top-left once signed in. */
+export function PortalMark({ light = true, collapsed = false }) {
+  if (collapsed) return <img src="/favicon.svg" alt="Workflow Automation" className="size-10 rounded-xl" />;
+  return (
+    <span className="flex items-center gap-3">
+      <img src="/favicon.svg" alt="" className="size-10 shrink-0 rounded-xl" />
+      <span className="leading-tight">
+        <span className={`block font-display text-[17px] font-medium tracking-[-0.01em] ${light ? "text-paper" : "text-ink"}`}>Workflow Automation</span>
+        <span className={`block font-mono text-[10px] uppercase tracking-[0.14em] ${light ? "text-mist" : "text-muted"}`}>Agarwal &amp; Saxena</span>
+      </span>
+    </span>
+  );
 }

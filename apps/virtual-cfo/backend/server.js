@@ -213,4 +213,4 @@ app.use((err, _req, res, _next) => {
 });
 
 const PORT = Number(process.env.PORT) || 8001;
-app.listen(PORT, () => console.log(`Virtual CFO API on :${PORT}`));
+app.listen(PORT, () => console.log(`Financial Statement Analysis API on :${PORT}`));

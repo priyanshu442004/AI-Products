@@ -113,8 +113,8 @@ const BalanceSheet = () => {
 
   return (
     <div className="flex-1 flex flex-col min-h-screen">
-      <header className="flex items-center justify-between bg-white/80 backdrop-blur-xl px-6 py-4 shadow-sm border-b border-[#E5E7EB]/50">
-        <h1 className="text-lg font-semibold text-[#0F172A]">Balance Sheet Generator</h1>
+      <header className="flex items-center justify-between bg-white/80 backdrop-blur-xl px-6 py-4 shadow-sm border-b border-[#dde3da]/50">
+        <h1 className="text-lg font-semibold text-[#0b1a33]">Balance Sheet Generator</h1>
       </header>
       <div className="p-8">
         <div className="max-w-4xl mx-auto bg-white shadow-2xl rounded-3xl p-8">

@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 /* ------------------------------------------------------------------
-   Analytx4t design tokens — derived from the brand mark
-   (navy #0d1d3b on the existing site, teal #4fb3ac, lime→cyan gradient)
+   Design tokens shared by the portal and every product app
+   (navy, teal, lime). Brand: Agarwal & Saxena, Chartered Accountants
    ------------------------------------------------------------------ */
 @theme {
   --font-display: "Funnel Display Variable", ui-sans-serif, system-ui, sans-serif;

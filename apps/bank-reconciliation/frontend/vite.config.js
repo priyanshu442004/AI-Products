@@ -12,7 +12,7 @@ export default defineConfig({
   resolve: {
     // shared UI lives in apps/_shared; resolve its React/router/motion imports from this app
     alias: { '@shared': fileURLToPath(new URL('../../_shared/src', import.meta.url)) },
-    dedupe: ['react', 'react-dom', 'react-router', 'motion'],
+    dedupe: ['react', 'react-dom', 'react-router', 'motion', 'react-markdown', 'remark-gfm'],
   },
   server: {
     port: 5176,

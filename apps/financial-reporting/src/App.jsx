@@ -23,8 +23,8 @@ import AIAssistantPage from "./pages/AIAssistantPage";
 import { ToastProvider } from "./context/ToastContext";
 import Placeholder from "./pages/Placeholder";
 
-// Financial Reporting opens straight into the dashboard — there is no separate
-// sign-in (access is through the Analytx4t portal). Old landing / login URLs redirect.
+// Trial Balance opens straight into the dashboard — there is no separate
+// sign-in (access is through the Workflow Automation portal). Old landing / login URLs redirect.
 const toDashboard = <Navigate to="/dashboard" replace />;
 
 function AppContent() {

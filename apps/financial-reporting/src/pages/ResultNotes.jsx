@@ -120,7 +120,7 @@ const ResultNotes = () => {
   // ── NOTE 28 – STATIC PAGE ────────────────────────────────────────────────────
   if (effectiveNotePoint === "28") {
     return (
-      <div className="min-h-screen p-8 bg-gradient-to-br from-[#F8FAFC] via-blue-50/20 to-purple-50/20" style={{ overflowY: "auto" }}>
+      <div className="min-h-screen p-8 bg-gradient-to-br from-[#f3f5f1] via-blue-50/20 to-purple-50/20" style={{ overflowY: "auto" }}>
         <GoBackButton />
         <div className="max-w-6xl mx-auto bg-white rounded-xl shadow-md p-8">
           <h2 className="text-xl font-bold mb-6">28. DISCLOSURES RELATING TO EMPLOYEE BENEFITS</h2>
@@ -405,7 +405,7 @@ const ResultNotes = () => {
   // ── NOTE 29 – SEGMENT REPORTING ─────────────────────────────────────────────
   if (effectiveNotePoint === "29") {
     return (
-      <div className="min-h-screen p-8 bg-gradient-to-br from-[#F8FAFC] via-blue-50/20 to-purple-50/20" style={{ overflowY: "auto" }}>
+      <div className="min-h-screen p-8 bg-gradient-to-br from-[#f3f5f1] via-blue-50/20 to-purple-50/20" style={{ overflowY: "auto" }}>
         <GoBackButton />
         <div className="max-w-6xl mx-auto bg-white rounded-xl shadow-md p-8">
           <h2 className="text-xl font-bold mb-6">29. SEGMENT REPORTING</h2>
@@ -423,7 +423,7 @@ const ResultNotes = () => {
   // ── NOTE 30 – INTEREST IN OTHER ENTITIES ────────────────────────────────────
   if (effectiveNotePoint === "30") {
     return (
-      <div className="min-h-screen p-8 bg-gradient-to-br from-[#F8FAFC] via-blue-50/20 to-purple-50/20" style={{ overflowY: "auto" }}>
+      <div className="min-h-screen p-8 bg-gradient-to-br from-[#f3f5f1] via-blue-50/20 to-purple-50/20" style={{ overflowY: "auto" }}>
         <GoBackButton />
         <div className="max-w-6xl mx-auto bg-white rounded-xl shadow-md p-8">
           <h2 className="text-xl font-bold mb-6">30. INTEREST IN OTHER ENTITIES</h2>
@@ -564,7 +564,7 @@ const ResultNotes = () => {
   // ── NOTE 31 – RELATED PARTY DISCLOSURES ─────────────────────────────────────
   if (effectiveNotePoint === "31") {
     return (
-      <div className="min-h-screen p-8 bg-gradient-to-br from-[#F8FAFC] via-blue-50/20 to-purple-50/20" style={{ overflowY: "auto" }}>
+      <div className="min-h-screen p-8 bg-gradient-to-br from-[#f3f5f1] via-blue-50/20 to-purple-50/20" style={{ overflowY: "auto" }}>
         <GoBackButton />
         <div className="max-w-6xl mx-auto bg-white rounded-xl shadow-md p-8">
           <h2 className="text-xl font-bold mb-4">31. RELATED PARTY DISCLOSURES</h2>
@@ -647,7 +647,7 @@ const ResultNotes = () => {
   // ── NOTE 32 – CONTINGENT LIABILITIES ────────────────────────────────────────
   if (effectiveNotePoint === "32") {
     return (
-      <div className="min-h-screen p-8 bg-gradient-to-br from-[#F8FAFC] via-blue-50/20 to-purple-50/20" style={{ overflowY: "auto" }}>
+      <div className="min-h-screen p-8 bg-gradient-to-br from-[#f3f5f1] via-blue-50/20 to-purple-50/20" style={{ overflowY: "auto" }}>
         <GoBackButton />
         <div className="max-w-6xl mx-auto bg-white rounded-xl shadow-md p-8">
           <h2 className="text-xl font-bold mb-2">32. CONTINGENT LIABILITIES</h2>
@@ -737,7 +737,7 @@ const ResultNotes = () => {
   // ── NOTE 33 – LEASES ─────────────────────────────────────────────────────────
   if (effectiveNotePoint === "33") {
     return (
-      <div className="min-h-screen p-8 bg-gradient-to-br from-[#F8FAFC] via-blue-50/20 to-purple-50/20" style={{ overflowY: "auto" }}>
+      <div className="min-h-screen p-8 bg-gradient-to-br from-[#f3f5f1] via-blue-50/20 to-purple-50/20" style={{ overflowY: "auto" }}>
         <GoBackButton />
         <div className="max-w-6xl mx-auto bg-white rounded-xl shadow-md p-8">
           <h2 className="text-xl font-bold mb-4">33. LEASES</h2>
@@ -754,7 +754,7 @@ const ResultNotes = () => {
   // ── NOTE 34 – EXPENDITURE IN FOREIGN CURRENCY ────────────────────────────────
   if (effectiveNotePoint === "34") {
     return (
-      <div className="min-h-screen p-8 bg-gradient-to-br from-[#F8FAFC] via-blue-50/20 to-purple-50/20" style={{ overflowY: "auto" }}>
+      <div className="min-h-screen p-8 bg-gradient-to-br from-[#f3f5f1] via-blue-50/20 to-purple-50/20" style={{ overflowY: "auto" }}>
         <GoBackButton />
         <div className="max-w-6xl mx-auto bg-white rounded-xl shadow-md p-8">
           <h2 className="text-xl font-bold mb-4">34. EXPENDITURE IN FOREIGN CURRENCY (ON ACCRUAL BASIS)</h2>
@@ -796,7 +796,7 @@ const ResultNotes = () => {
   // ── NOTE 35 – CAPITAL AND OTHER COMMITMENTS ──────────────────────────────────
   if (effectiveNotePoint === "35") {
     return (
-      <div className="min-h-screen p-8 bg-gradient-to-br from-[#F8FAFC] via-blue-50/20 to-purple-50/20" style={{ overflowY: "auto" }}>
+      <div className="min-h-screen p-8 bg-gradient-to-br from-[#f3f5f1] via-blue-50/20 to-purple-50/20" style={{ overflowY: "auto" }}>
         <GoBackButton />
         <div className="max-w-6xl mx-auto bg-white rounded-xl shadow-md p-8">
           <h2 className="text-xl font-bold mb-4">35. CAPITAL AND OTHER COMMITMENTS</h2>
@@ -816,7 +816,7 @@ const ResultNotes = () => {
   // ── NOTE 36 ───────────────────────────────────────────────────────────────────
   if (effectiveNotePoint === "36") {
     return (
-      <div className="min-h-screen p-8 bg-gradient-to-br from-[#F8FAFC] via-blue-50/20 to-purple-50/20" style={{ overflowY: "auto" }}>
+      <div className="min-h-screen p-8 bg-gradient-to-br from-[#f3f5f1] via-blue-50/20 to-purple-50/20" style={{ overflowY: "auto" }}>
         <GoBackButton />
         <div className="max-w-6xl mx-auto bg-white rounded-xl shadow-md p-8">
           <h2 className="text-xl font-bold mb-4">36.</h2>
@@ -832,7 +832,7 @@ const ResultNotes = () => {
   // ── NOTE 37 – MSMED ACT ───────────────────────────────────────────────────────
   if (effectiveNotePoint === "37") {
     return (
-      <div className="min-h-screen p-8 bg-gradient-to-br from-[#F8FAFC] via-blue-50/20 to-purple-50/20" style={{ overflowY: "auto" }}>
+      <div className="min-h-screen p-8 bg-gradient-to-br from-[#f3f5f1] via-blue-50/20 to-purple-50/20" style={{ overflowY: "auto" }}>
         <GoBackButton />
         <div className="max-w-6xl mx-auto bg-white rounded-xl shadow-md p-8">
           <h2 className="text-xl font-bold mb-4">37. DISCLOSURE UNDER THE MICRO, SMALL AND MEDIUM ENTERPRISES DEVELOPMENT ACT,2006 ("MSMED Act, 2006") AS BELOW:</h2>
@@ -876,7 +876,7 @@ const ResultNotes = () => {
   // ── NOTE 38 ───────────────────────────────────────────────────────────────────
   if (effectiveNotePoint === "38") {
     return (
-      <div className="min-h-screen p-8 bg-gradient-to-br from-[#F8FAFC] via-blue-50/20 to-purple-50/20" style={{ overflowY: "auto" }}>
+      <div className="min-h-screen p-8 bg-gradient-to-br from-[#f3f5f1] via-blue-50/20 to-purple-50/20" style={{ overflowY: "auto" }}>
         <GoBackButton />
         <div className="max-w-6xl mx-auto bg-white rounded-xl shadow-md p-8">
           <h2 className="text-xl font-bold mb-4">38.</h2>
@@ -893,7 +893,7 @@ const ResultNotes = () => {
   // ── NOTE 39 ───────────────────────────────────────────────────────────────────
   if (effectiveNotePoint === "39") {
     return (
-      <div className="min-h-screen p-8 bg-gradient-to-br from-[#F8FAFC] via-blue-50/20 to-purple-50/20" style={{ overflowY: "auto" }}>
+      <div className="min-h-screen p-8 bg-gradient-to-br from-[#f3f5f1] via-blue-50/20 to-purple-50/20" style={{ overflowY: "auto" }}>
         <GoBackButton />
         <div className="max-w-6xl mx-auto bg-white rounded-xl shadow-md p-8">
           <h2 className="text-xl font-bold mb-4">39.</h2>
@@ -909,7 +909,7 @@ const ResultNotes = () => {
   // ── NOTE 40 – INVESTMENT INCLUDES ────────────────────────────────────────────
   if (effectiveNotePoint === "40") {
     return (
-      <div className="min-h-screen p-8 bg-gradient-to-br from-[#F8FAFC] via-blue-50/20 to-purple-50/20" style={{ overflowY: "auto" }}>
+      <div className="min-h-screen p-8 bg-gradient-to-br from-[#f3f5f1] via-blue-50/20 to-purple-50/20" style={{ overflowY: "auto" }}>
         <GoBackButton />
         <div className="max-w-6xl mx-auto bg-white rounded-xl shadow-md p-8">
           <h2 className="text-xl font-bold mb-4">40. Investment includes:</h2>
@@ -931,7 +931,7 @@ const ResultNotes = () => {
   // ── NOTE 41 – CORPORATE SOCIAL RESPONSIBILITY (CSR) ──────────────────────────
   if (effectiveNotePoint === "41") {
     return (
-      <div className="min-h-screen p-8 bg-gradient-to-br from-[#F8FAFC] via-blue-50/20 to-purple-50/20" style={{ overflowY: "auto" }}>
+      <div className="min-h-screen p-8 bg-gradient-to-br from-[#f3f5f1] via-blue-50/20 to-purple-50/20" style={{ overflowY: "auto" }}>
         <GoBackButton />
         <div className="max-w-6xl mx-auto bg-white rounded-xl shadow-md p-8">
           <h2 className="text-xl font-bold mb-4">41. CORPORATE SOCIAL RESPONSIBILITY (CSR)</h2>
@@ -1105,7 +1105,7 @@ const ResultNotes = () => {
   // ── NOTE 42 – FINANCIAL INSTRUMENTS ──────────────────────────────────────────
   if (effectiveNotePoint === "42") {
     return (
-      <div className="min-h-screen p-8 bg-gradient-to-br from-[#F8FAFC] via-blue-50/20 to-purple-50/20" style={{ overflowY: "auto" }}>
+      <div className="min-h-screen p-8 bg-gradient-to-br from-[#f3f5f1] via-blue-50/20 to-purple-50/20" style={{ overflowY: "auto" }}>
         <GoBackButton />
         <div className="max-w-6xl mx-auto bg-white rounded-xl shadow-md p-8">
           <h2 className="text-xl font-bold mb-4">42. FINANCIAL INSTRUMENTS</h2>
@@ -1275,7 +1275,7 @@ const ResultNotes = () => {
   // ── NOTE 43 – FINANCIAL RISK MANAGEMENT ──────────────────────────────────────
   if (effectiveNotePoint === "43") {
     return (
-      <div className="min-h-screen p-8 bg-gradient-to-br from-[#F8FAFC] via-blue-50/20 to-purple-50/20" style={{ overflowY: "auto" }}>
+      <div className="min-h-screen p-8 bg-gradient-to-br from-[#f3f5f1] via-blue-50/20 to-purple-50/20" style={{ overflowY: "auto" }}>
         <GoBackButton />
         <div className="max-w-6xl mx-auto bg-white rounded-xl shadow-md p-8">
           <h2 className="text-xl font-bold mb-4">43. FINANCIAL RISK MANAGEMENT OBJECTIVE AND POLICIES</h2>
@@ -1514,7 +1514,7 @@ const ResultNotes = () => {
   // ── NOTE 44 – CAPITAL MANAGEMENT ─────────────────────────────────────────────
   if (effectiveNotePoint === "44") {
     return (
-      <div className="min-h-screen p-8 bg-gradient-to-br from-[#F8FAFC] via-blue-50/20 to-purple-50/20" style={{ overflowY: "auto" }}>
+      <div className="min-h-screen p-8 bg-gradient-to-br from-[#f3f5f1] via-blue-50/20 to-purple-50/20" style={{ overflowY: "auto" }}>
         <GoBackButton />
         <div className="max-w-6xl mx-auto bg-white rounded-xl shadow-md p-8">
           <h2 className="text-xl font-bold mb-4">44. CAPITAL MANAGEMENT</h2>
@@ -1672,7 +1672,7 @@ const ResultNotes = () => {
     ];
 
     return (
-      <div className="min-h-screen p-8 bg-gradient-to-br from-[#F8FAFC] via-blue-50/20 to-purple-50/20" style={{ overflowY: "auto" }}>
+      <div className="min-h-screen p-8 bg-gradient-to-br from-[#f3f5f1] via-blue-50/20 to-purple-50/20" style={{ overflowY: "auto" }}>
         <GoBackButton />
         <div className="max-w-7xl mx-auto bg-white rounded-xl shadow-md p-8">
           <h2 className="text-xl font-bold mb-4">45. RATIO ANALYSIS</h2>
@@ -1721,7 +1721,7 @@ const ResultNotes = () => {
   // ── NOTE 46 – OTHER STATUTORY INFORMATION ────────────────────────────────────
   if (effectiveNotePoint === "46") {
     return (
-      <div className="min-h-screen p-8 bg-gradient-to-br from-[#F8FAFC] via-blue-50/20 to-purple-50/20" style={{ overflowY: "auto" }}>
+      <div className="min-h-screen p-8 bg-gradient-to-br from-[#f3f5f1] via-blue-50/20 to-purple-50/20" style={{ overflowY: "auto" }}>
         <GoBackButton />
         <div className="max-w-6xl mx-auto bg-white rounded-xl shadow-md p-8">
           <h2 className="text-xl font-bold mb-4">46. OTHER STATUTORY INFORMATION</h2>
@@ -1749,7 +1749,7 @@ const ResultNotes = () => {
   // ── NOTE 47 ───────────────────────────────────────────────────────────────────
   if (effectiveNotePoint === "47") {
     return (
-      <div className="min-h-screen p-8 bg-gradient-to-br from-[#F8FAFC] via-blue-50/20 to-purple-50/20" style={{ overflowY: "auto" }}>
+      <div className="min-h-screen p-8 bg-gradient-to-br from-[#f3f5f1] via-blue-50/20 to-purple-50/20" style={{ overflowY: "auto" }}>
         <GoBackButton />
         <div className="max-w-6xl mx-auto bg-white rounded-xl shadow-md p-8">
           <h2 className="text-xl font-bold mb-4">47.</h2>
@@ -1766,7 +1766,7 @@ const ResultNotes = () => {
   // ── NOTE 48 ───────────────────────────────────────────────────────────────────
   if (effectiveNotePoint === "48") {
     return (
-      <div className="min-h-screen p-8 bg-gradient-to-br from-[#F8FAFC] via-blue-50/20 to-purple-50/20" style={{ overflowY: "auto" }}>
+      <div className="min-h-screen p-8 bg-gradient-to-br from-[#f3f5f1] via-blue-50/20 to-purple-50/20" style={{ overflowY: "auto" }}>
         <GoBackButton />
         <div className="max-w-6xl mx-auto bg-white rounded-xl shadow-md p-8">
           <h2 className="text-xl font-bold mb-4">48.</h2>
@@ -1844,7 +1844,7 @@ const ResultNotes = () => {
       "44": "Capital Management", "45": "Ratio Analysis", "46": "Other Statutory Information", "47": "", "48": "",
     };
     return (
-      <div className="min-h-screen p-8 bg-gradient-to-br from-[#F8FAFC] via-blue-50/20 to-purple-50/20">
+      <div className="min-h-screen p-8 bg-gradient-to-br from-[#f3f5f1] via-blue-50/20 to-purple-50/20">
         <GoBackButton />
         <div className="max-w-5xl mx-auto bg-white rounded-xl shadow-md p-8">
           <h2 className="text-xl font-bold mb-6">{effectiveNotePoint}. {noteTitles[effectiveNotePoint] ?? ""}</h2>
@@ -1861,7 +1861,7 @@ const ResultNotes = () => {
   console.log("Received data for notes:", data);
 
   return (
-    <div className="min-h-screen p-8 bg-gradient-to-br from-[#F8FAFC] via-blue-50/20 to-purple-50/20">
+    <div className="min-h-screen p-8 bg-gradient-to-br from-[#f3f5f1] via-blue-50/20 to-purple-50/20">
       <GoBackButton />
       <div className="max-w-5xl mx-auto bg-white rounded-xl shadow-md p-8">
 

@@ -13,6 +13,9 @@ import { validateBatch, buildBatch, pdfModel, registerCsv } from "./lib/report.j
 import { buildWorkbook } from "./lib/excel.js";
 import { mailReport, SUBJECT } from "./lib/mail.js";
 import { batchSummary } from "./lib/summary.js";
+import { stream } from "./lib/deepseek.js";
+import { invoiceContext, INVOICE_SUGGESTIONS } from "./lib/chatContext.js";
+import { mountChat } from "../../_shared/server/chat.js";
 
 const ROOT = path.dirname(fileURLToPath(import.meta.url));
 const DATA = path.join(ROOT, "data", "batches");
@@ -168,6 +171,13 @@ app.get("/api/runs/:id/invoices/:n", (req, res) => {
   res.setHeader("Content-Disposition", "inline");
   fs.createReadStream(file).pipe(res);
 });
+// chat with a processed batch of invoices (DeepSeek, streamed)
+mountChat(app, {
+  stream, runDir, context: invoiceContext, suggestions: INVOICE_SUGGESTIONS,
+  assistant: "Invoice Assistant", product: "Invoice Automation",
+  limiter: rateLimit({ windowMs: 60 * 1000, max: 20, standardHeaders: true, legacyHeaders: false }),
+});
+
 app.post("/api/runs/:id/email", limiter, async (req, res) => {
   const dir = runDir(req.params.id);
   if (!dir || !fs.existsSync(path.join(dir, "meta.json"))) return res.status(404).json({ error: "Batch not found" });

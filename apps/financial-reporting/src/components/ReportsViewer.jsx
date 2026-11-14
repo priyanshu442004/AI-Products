@@ -179,10 +179,10 @@ const ReportsViewer = ({ reports, documentType, baseResult = null }) => {
       };
       
       return (
-        <div className="overflow-x-auto rounded-[14px] border border-[#E5E7EB] bg-white shadow-[0_1px_3px_rgba(0,0,0,0.08)]">
+        <div className="overflow-x-auto rounded-[14px] border border-[#dde3da] bg-white shadow-[0_1px_3px_rgba(0,0,0,0.08)]">
           <table className="min-w-full text-sm" style={{ borderCollapse: 'separate', borderSpacing: 0 }}>
             <thead>
-              <tr className="bg-gradient-to-r from-[#F8FAFC] to-[#F1F5F9] border-b border-[#E5E7EB]">
+              <tr className="bg-gradient-to-r from-[#f3f5f1] to-[#e8ece5] border-b border-[#dde3da]">
                 {headers.map(header => {
                   const headerLower = header.toLowerCase();
                   const isNumeric = isFinancialTable && (headerLower.includes('debit') || headerLower.includes('credit') || 
@@ -191,7 +191,7 @@ const ReportsViewer = ({ reports, documentType, baseResult = null }) => {
                   return (
                     <th 
                       key={header} 
-                      className={`px-5 py-4 font-semibold text-[#0F172A] text-xs uppercase tracking-wider ${
+                      className={`px-5 py-4 font-semibold text-[#0b1a33] text-xs uppercase tracking-wider ${
                         isNumeric ? 'text-right' : 'text-left'
                       }`}
                     >
@@ -201,7 +201,7 @@ const ReportsViewer = ({ reports, documentType, baseResult = null }) => {
                 })}
               </tr>
             </thead>
-            <tbody className="divide-y divide-[#E5E7EB]">
+            <tbody className="divide-y divide-[#dde3da]">
               {data.map((row, idx) => {
                 // Check if this is a total/summary row
                 const isTotalRow = headers.some(h => {
@@ -218,8 +218,8 @@ const ReportsViewer = ({ reports, documentType, baseResult = null }) => {
                     key={idx} 
                     className={`transition-all duration-200 ${
                       isTotalRow 
-                        ? 'bg-gradient-to-r from-[#F8FAFC] to-[#F1F5F9] font-semibold border-t-2 border-[#CBD5E1] hover:from-[#EFF6FF] hover:to-[#E0F2FE]' 
-                        : 'bg-white hover:bg-gradient-to-r hover:from-[#F8FAFC] hover:to-[#F1F5F9] hover:shadow-[0_2px_8px_rgba(0,0,0,0.04)]'
+                        ? 'bg-gradient-to-r from-[#f3f5f1] to-[#e8ece5] font-semibold border-t-2 border-[#c5ccc6] hover:from-[#eef6f5] hover:to-[#eef6f5]' 
+                        : 'bg-white hover:bg-gradient-to-r hover:from-[#f3f5f1] hover:to-[#e8ece5] hover:shadow-[0_2px_8px_rgba(0,0,0,0.04)]'
                     }`}
                   >
                     {headers.map(header => {
@@ -245,7 +245,7 @@ const ReportsViewer = ({ reports, documentType, baseResult = null }) => {
                         <td 
                           key={header} 
                           className={`px-5 py-3.5 ${alignment} ${
-                            isTotalRow ? 'text-[#0F172A] font-semibold' : 'text-[#475569]'
+                            isTotalRow ? 'text-[#0b1a33] font-semibold' : 'text-[#3a4659]'
                           }`}
                         >
                           {displayValue}
@@ -1592,10 +1592,10 @@ const ReportsViewer = ({ reports, documentType, baseResult = null }) => {
 
   return (
     <div className="space-y-6">
-      <div className="bg-white rounded-[20px] shadow-[0_8px_24px_rgba(0,0,0,0.08),0_2px_8px_rgba(0,0,0,0.04)] border border-[#E5E7EB] overflow-hidden">
-        <div className="px-6 py-5 bg-gradient-to-r from-[#F8FAFC] to-[#F1F5F9] border-b border-[#E5E7EB]">
-          <h2 className="text-2xl font-bold text-[#0F172A] tracking-[-0.01em] leading-[1.3]">Generated Reports</h2>
-          <p className="text-sm text-[#64748B] mt-1.5 leading-[1.5]">Click on any report to view detailed financial analysis</p>
+      <div className="bg-white rounded-[20px] shadow-[0_8px_24px_rgba(0,0,0,0.08),0_2px_8px_rgba(0,0,0,0.04)] border border-[#dde3da] overflow-hidden">
+        <div className="px-6 py-5 bg-gradient-to-r from-[#f3f5f1] to-[#e8ece5] border-b border-[#dde3da]">
+          <h2 className="text-2xl font-bold text-[#0b1a33] tracking-[-0.01em] leading-[1.3]">Generated Reports</h2>
+          <p className="text-sm text-[#566176] mt-1.5 leading-[1.5]">Click on any report to view detailed financial analysis</p>
         </div>
         
         <div className="py-2">
@@ -1611,7 +1611,7 @@ const ReportsViewer = ({ reports, documentType, baseResult = null }) => {
             if (filteredReports.length === 0) {
               return (
                 <div className="p-8 text-center">
-                  <p className="text-[#64748B] text-sm">No reports available for this document type.</p>
+                  <p className="text-[#566176] text-sm">No reports available for this document type.</p>
                 </div>
               );
             }
@@ -1624,22 +1624,22 @@ const ReportsViewer = ({ reports, documentType, baseResult = null }) => {
                 <div 
                   key={reportName} 
                   className={`transition-all duration-300 ${
-                    index < filteredReports.length - 1 ? 'border-b border-[#E5E7EB]' : ''
+                    index < filteredReports.length - 1 ? 'border-b border-[#dde3da]' : ''
                   }`}
                 >
                   <button
                     onClick={() => toggleReport(reportName)}
-                    className={`group w-full flex items-center justify-between p-5 lg:p-6 text-left transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#1E40AF]/20 focus:ring-offset-2 rounded-[20px] mx-2 my-1.5 transform ${
+                    className={`group w-full flex items-center justify-between p-5 lg:p-6 text-left transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#0b1a33]/20 focus:ring-offset-2 rounded-[20px] mx-2 my-1.5 transform ${
                       isExpanded 
-                        ? 'bg-gradient-to-r from-[#EFF6FF] to-[#F0F9FF] shadow-[0_8px_24px_rgba(30,64,175,0.15)] border-2 border-[#DBEAFE] scale-[1.01]' 
-                        : 'bg-white hover:bg-gradient-to-r hover:from-[#F8FAFC] hover:to-[#F1F5F9] hover:shadow-[0_4px_12px_rgba(0,0,0,0.08)] border-2 border-[#E5E7EB] hover:border-[#1E40AF]/30 hover:-translate-y-0.5'
+                        ? 'bg-gradient-to-r from-[#eef6f5] to-[#eef6f5] shadow-[0_8px_24px_rgba(30,64,175,0.15)] border-2 border-[#dcefec] scale-[1.01]' 
+                        : 'bg-white hover:bg-gradient-to-r hover:from-[#f3f5f1] hover:to-[#e8ece5] hover:shadow-[0_4px_12px_rgba(0,0,0,0.08)] border-2 border-[#dde3da] hover:border-[#0b1a33]/30 hover:-translate-y-0.5'
                     }`}
                   >
                     <div className="flex items-center space-x-4 flex-1 min-w-0">
                       <div className={`flex-shrink-0 p-3 rounded-xl transition-all duration-300 ${
                         isExpanded 
-                          ? 'bg-gradient-to-br from-[#1E40AF] to-[#7C3AED] text-white shadow-[0_4px_12px_rgba(30,64,175,0.25)] scale-110 group-hover:scale-115' 
-                          : 'bg-gradient-to-br from-[#F8FAFC] to-[#F1F5F9] text-[#64748B] border border-[#E5E7EB] group-hover:border-[#CBD5E1] group-hover:shadow-[0_2px_4px_rgba(0,0,0,0.04)]'
+                          ? 'bg-gradient-to-br from-[#0b1a33] to-[#4fb3ac] text-white shadow-[0_4px_12px_rgba(30,64,175,0.25)] scale-110 group-hover:scale-115' 
+                          : 'bg-gradient-to-br from-[#f3f5f1] to-[#e8ece5] text-[#566176] border border-[#dde3da] group-hover:border-[#c5ccc6] group-hover:shadow-[0_2px_4px_rgba(0,0,0,0.04)]'
                       }`}>
                         <div className="w-5 h-5 flex items-center justify-center">
                           {getReportIcon(reportName)}
@@ -1647,7 +1647,7 @@ const ReportsViewer = ({ reports, documentType, baseResult = null }) => {
                       </div>
                       <div className="flex-1 min-w-0">
                         <h3 className={`font-semibold text-base lg:text-lg tracking-[-0.01em] transition-colors duration-200 mb-1 ${
-                          isExpanded ? 'text-[#0F172A]' : 'text-[#0F172A]'
+                          isExpanded ? 'text-[#0b1a33]' : 'text-[#0b1a33]'
                         }`}>
                           {displayName}
                         </h3>
@@ -1655,8 +1655,8 @@ const ReportsViewer = ({ reports, documentType, baseResult = null }) => {
                           reportData.error 
                             ? 'text-red-600 font-medium' 
                             : isExpanded 
-                              ? 'text-[#475569]' 
-                              : 'text-[#64748B]'
+                              ? 'text-[#3a4659]' 
+                              : 'text-[#566176]'
                         }`}>
                           {reportData.error ? 'Error generating report' : 'Click to view detailed financial analysis'}
                         </p>
@@ -1664,8 +1664,8 @@ const ReportsViewer = ({ reports, documentType, baseResult = null }) => {
                     </div>
                     <div className={`flex-shrink-0 ml-6 transition-all duration-300 ${
                       isExpanded 
-                        ? 'transform rotate-180 text-[#1E40AF] scale-110' 
-                        : 'text-[#94A3B8] group-hover:text-[#64748B] group-hover:scale-110'
+                        ? 'transform rotate-180 text-[#0b1a33] scale-110' 
+                        : 'text-[#9aa7bd] group-hover:text-[#566176] group-hover:scale-110'
                     }`}>
                       {isExpanded ? (
                         <ChevronDown className="w-5 h-5" />
@@ -1676,8 +1676,8 @@ const ReportsViewer = ({ reports, documentType, baseResult = null }) => {
                   </button>
                   
                   {isExpanded && (
-                    <div className="px-2 lg:px-3 pb-5 lg:pb-6 pt-2 bg-gradient-to-b from-transparent to-[#F8FAFC]/20 animate-in slide-in-from-top-2 duration-300">
-                      <div className="bg-white rounded-[20px] p-6 lg:p-8 shadow-[0_8px_24px_rgba(0,0,0,0.08),0_2px_8px_rgba(0,0,0,0.04)] border-2 border-[#E5E7EB] hover:border-[#1E40AF]/20 transition-all duration-300">
+                    <div className="px-2 lg:px-3 pb-5 lg:pb-6 pt-2 bg-gradient-to-b from-transparent to-[#f3f5f1]/20 animate-in slide-in-from-top-2 duration-300">
+                      <div className="bg-white rounded-[20px] p-6 lg:p-8 shadow-[0_8px_24px_rgba(0,0,0,0.08),0_2px_8px_rgba(0,0,0,0.04)] border-2 border-[#dde3da] hover:border-[#0b1a33]/20 transition-all duration-300">
                         {renderReportContent(reportName, reportData)}
                       </div>
                     </div>

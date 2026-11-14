@@ -36,6 +36,7 @@ export default function BatchDetail() {
         </div>
         <div className="flex flex-wrap items-center gap-2">
           <MailStatus mail={meta.mail} onResend={resend} busy={resending} />
+          <Btn to={`/chat/${id}`} variant="lime" icon="ai">Ask AI</Btn>
           <Btn href={fileUrl(`/runs/${id}/pdf`)} target="_blank" variant="line" icon="file">View PDF</Btn>
           <Btn href={fileUrl(`/runs/${id}/pdf?download=1`)} variant="line" icon="download">PDF</Btn>
           <Btn href={fileUrl(`/runs/${id}/csv`)} variant="line" icon="download">CSV</Btn>

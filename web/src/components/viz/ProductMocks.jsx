@@ -1,19 +1,20 @@
 import { motion } from "motion/react";
 import { EASE } from "../ui";
 
-/* Coded UI previews of the four portal products. Every figure is real output from
-   the products' own sample runs (Financial Reporting shows ledger counts only, no client amounts). */
+/* Coded UI previews of the portal products. Every figure is real output from
+   the products' own sample runs (Trial Balance shows ledger counts only, no client amounts).
+   GST figures are illustrative; coming-soon products get SoonMock. */
 
 const inView = { initial: "hidden", whileInView: "show", viewport: { once: true, margin: "-15%" } };
 const row = (i) => ({ hidden: { opacity: 0, x: -10 }, show: { opacity: 1, x: 0, transition: { delay: 0.1 + i * 0.08, duration: 0.6, ease: EASE } } });
 
-function Frame({ title, children }) {
+function Frame({ title, children, tag = "sample data" }) {
   return (
     <div className="overflow-hidden rounded-2xl border border-white/10 bg-ink-2 shadow-[0_40px_80px_-30px_rgb(0_0_0/0.6)]">
       <div className="flex items-center gap-2 border-b border-white/8 px-4 py-3">
         <span className="size-2.5 rounded-full bg-white/15" /><span className="size-2.5 rounded-full bg-white/15" /><span className="size-2.5 rounded-full bg-white/15" />
         <span className="ml-3 font-mono text-[11px] text-mist">{title}</span>
-        <span className="ml-auto font-mono text-[10px] uppercase tracking-wider text-mist/60">sample data</span>
+        <span className="ml-auto font-mono text-[10px] uppercase tracking-wider text-mist/60">{tag}</span>
       </div>
       <div className="p-4 sm:p-5">{children}</div>
     </div>
@@ -29,7 +30,7 @@ export function FinancialReportingMock() {
     ["Sundry debtors", "30", "Trade receivables"],
   ];
   return (
-    <Frame title="financial-reporting / trial-balance → balance-sheet">
+    <Frame title="trial-balance / ledgers → balance-sheet">
       <motion.div {...inView} className="space-y-1.5 font-mono text-[11px] sm:text-xs">
         <div className="grid grid-cols-[1.4fr_0.8fr_1.3fr] gap-3 px-2 pb-1 text-mist/70"><span>Ledger group</span><span className="text-right">Ledgers</span><span>Schedule III head</span></div>
         {lines.map(([l, a, h], i) => (
@@ -56,7 +57,7 @@ export function CfoMock() {
   const dims = [["Liquidity", "Low"], ["Profitability", "Mixed"], ["Leverage", "Low"], ["Efficiency", "Watch"], ["Cash flow", "Low"], ["Growth", "Watch"]];
   const tone = { Good: "bg-teal/20 text-teal", Mixed: "bg-white/10 text-paper/80", Watch: "bg-lime/15 text-lime", Low: "bg-[#e0796b]/20 text-[#f0a093]" };
   return (
-    <Frame title="virtual-cfo / health-report · FY2024">
+    <Frame title="statement-analysis / health-report · FY2024">
       <motion.div {...inView}>
         <div className="grid grid-cols-3 gap-2.5">
           {[["Health score", "59/100"], ["Current ratio", "0.61"], ["Debt / equity", "6.48×"]].map(([k, v], i) => (
@@ -145,4 +146,61 @@ export function InvoiceMock() {
   );
 }
 
-export const mockFor = { "financial-reporting": FinancialReportingMock, "virtual-cfo": CfoMock, "bank-reconciliation": RecoMock, "invoice-automation": InvoiceMock };
+export function GstMock() {
+  const rows = [["Matched with GSTR-2B", 412, "bg-teal", 82], ["In books, not in 2B", 37, "bg-[#e0796b]", 18], ["In 2B, not in books", 21, "bg-lime", 11], ["Tax amount mismatch", 9, "bg-lime", 6]];
+  return (
+    <Frame title="gst-reconciliation / annual-return · FY 2024-25" tag="illustrative">
+      <motion.div {...inView} className="font-mono text-[11px] sm:text-xs">
+        <div className="grid grid-cols-3 gap-2.5">
+          {[["Documents", "11"], ["Exceptions", "4"], ["Risk", "Review"]].map(([k, v], i) => (
+            <motion.div key={k} variants={row(i)} className="rounded-xl bg-white/[0.04] p-3">
+              <div className="text-[10px] uppercase tracking-wider text-mist/80">{k}</div>
+              <div className="mt-1.5 font-display text-xl text-paper sm:text-2xl">{v}</div>
+            </motion.div>
+          ))}
+        </div>
+        <div className="mt-4 space-y-2.5 rounded-xl bg-white/[0.03] p-3">
+          <div className="text-mist/70">Books vs GSTR-2B · inward ITC</div>
+          {rows.map(([k, n, c, w], i) => (
+            <div key={k}>
+              <div className="flex justify-between text-paper/90"><span>{k}</span><span className="tabular-nums">{n}</span></div>
+              <div className="mt-1 h-1.5 overflow-hidden rounded-full bg-white/8">
+                <motion.div className={`h-full rounded-full ${c}`} variants={{ hidden: { width: 0 }, show: { width: `${w}%`, transition: { delay: 0.4 + i * 0.12, duration: 0.9, ease: EASE } } }} />
+              </div>
+            </div>
+          ))}
+        </div>
+        <motion.div variants={{ hidden: { opacity: 0 }, show: { opacity: 1, transition: { delay: 1.4 } } }} className="mt-4 flex justify-between border-t border-white/10 px-1 pt-3 text-paper">
+          <span>GSTR-9 · GSTR-9C workings</span><span className="text-lime">✓ Ready for senior review</span>
+        </motion.div>
+      </motion.div>
+    </Frame>
+  );
+}
+
+/** Preview for a product that is not built yet: its pipeline, animated. */
+export function SoonMock({ p }) {
+  return (
+    <Frame title={`${p.slug} / preview`} tag="coming soon">
+      <motion.div {...inView} className="relative">
+        <div className="grid gap-2.5 sm:grid-cols-3">
+          {p.flow.map((f, i) => (
+            <motion.div key={f} variants={row(i)} className="relative rounded-xl border border-white/10 bg-white/[0.04] p-4">
+              <span className="font-mono text-[10px] text-mist">0{i + 1}</span>
+              <p className="mt-2 text-[13px] leading-snug text-paper">{f}</p>
+              <motion.span className="mt-4 block h-1 rounded-full bg-gradient-to-r from-teal via-lime to-teal bg-[length:200%_100%]"
+                animate={{ backgroundPositionX: ["0%", "200%"] }} transition={{ duration: 3, repeat: Infinity, ease: "linear", delay: i * 0.4 }} />
+            </motion.div>
+          ))}
+        </div>
+        <div className="mt-4 grid grid-cols-2 gap-1.5 font-mono text-[11px] sm:grid-cols-3">
+          {p.features.map((f, i) => (
+            <motion.div key={f} variants={{ hidden: { opacity: 0 }, show: { opacity: 1, transition: { delay: 0.5 + i * 0.06 } } }} className="truncate rounded-lg bg-white/[0.03] px-2 py-1.5 text-mist">{f}</motion.div>
+          ))}
+        </div>
+      </motion.div>
+    </Frame>
+  );
+}
+
+export const mockFor = { "financial-reporting": FinancialReportingMock, "virtual-cfo": CfoMock, "bank-reconciliation": RecoMock, "invoice-automation": InvoiceMock, "gst-reconciliation": GstMock };

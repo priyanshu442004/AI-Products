@@ -1,8 +1,9 @@
-// Shared UI for Analytx4t product websites.
+// Shared UI for the Agarwal & Saxena Workflow Automation product websites.
 import { useEffect, useRef, useState } from "react";
 import { NavLink, Outlet, useLocation, Link } from "react-router";
 import { AnimatePresence, motion } from "motion/react";
 import { kb, dateTime } from "./format";
+import logoLight from "./assets/agarwal-saxena-logo-light.svg";
 
 export const EASE = [0.16, 1, 0.3, 1];
 export const rise = (i = 0) => ({ initial: { y: 12 }, animate: { y: 0 }, transition: { delay: 0.05 * i, duration: 0.6, ease: EASE } });
@@ -28,6 +29,10 @@ const P = {
   invoice: <><path d="M5 2.5h10v15l-2-1.3-1.7 1.3-1.6-1.3-1.7 1.3L6.3 16.2 5 17.5z" /><path d="M8 6.5h4M8 9.5h4" /></>,
   menu: <path d="M3 6h14M3 10h14M3 14h9" />,
   external: <path d="M8 4.5H4.5v11h11V12M11 3.5h5.5V9M16.5 3.5 9 11" />,
+  ai: <><path d="M10 2.5 11.6 7 16 8.5 11.6 10 10 14.5 8.4 10 4 8.5 8.4 7z" /><path d="M15.5 13.5l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7z" /></>,
+  gst: <><rect x="3" y="3" width="14" height="14" rx="2.5" /><path d="M6.5 7.5h3M6.5 10.5h3M6.5 13.5h2" /><path d="m11.5 11 1.5 1.5 3-3.5" /></>,
+  ledger: <><rect x="3" y="2.5" width="14" height="15" rx="2" /><path d="M6.5 6.5h7M6.5 9.5h7M6.5 12.5h4" /></>,
+  folder: <path d="M2.5 6V15a1.5 1.5 0 0 0 1.5 1.5h12a1.5 1.5 0 0 0 1.5-1.5V7.5A1.5 1.5 0 0 0 16 6h-6L8.5 4H4A1.5 1.5 0 0 0 2.5 5.5z" />,
 };
 export function Icon({ name, className = "size-[18px]", strokeWidth = 1.6 }) {
   return (
@@ -76,9 +81,11 @@ export function AppShell({ product, nav, cta }) {
       </nav>
       <div className="space-y-1 border-t border-white/10 pt-4">
         <a href="/dashboard" target="_top" className="flex h-10 items-center gap-3 rounded-xl px-3 text-[13.5px] text-mist transition-colors hover:text-paper">
-          <Icon name="back" /> Analytx4t portal
+          <Icon name="back" /> Workflow Automation
         </a>
-        <p className="px-3 font-mono text-[10px] uppercase tracking-[0.14em] text-mist/60">Analytx4t Lab · AI Products</p>
+        <div className="px-3 pt-1">
+          <img src={logoLight} alt="Agarwal & Saxena — Chartered Accountants" className="h-7 w-auto opacity-90" width="2600" height="350" />
+        </div>
       </div>
     </aside>
   );

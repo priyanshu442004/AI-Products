@@ -3,8 +3,6 @@ import MarketingLayout from "./components/MarketingLayout";
 import Home from "./pages/Home";
 import Services from "./pages/Services";
 import Products from "./pages/Products";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import NotFound from "./pages/NotFound";
@@ -29,8 +27,6 @@ export const router = createBrowserRouter([
       { path: "/", element: <Home /> },
       { path: "/services", element: <Services /> },
       { path: "/products", element: <Products /> },
-      { path: "/about", element: <About /> },
-      { path: "/contact", element: <Contact /> },
       { path: "*", element: <NotFound /> },
     ],
   },

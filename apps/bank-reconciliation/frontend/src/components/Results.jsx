@@ -30,6 +30,7 @@ export default function Results({ meta, result: r, onResend, resending }) {
         </div>
         <div className="flex flex-wrap items-center gap-2">
           <MailStatus mail={meta.mail} onResend={onResend} busy={resending} />
+          <Btn to={`/chat/${meta.id}`} variant="lime" icon="ai">Ask AI</Btn>
           <Btn href={pdf} target="_blank" variant="line" icon="file">View PDF</Btn>
           <Btn href={`${pdf}?download=1`} variant="line" icon="download">PDF</Btn>
           <Btn href={xlsx} icon="download">Excel</Btn>

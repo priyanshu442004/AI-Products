@@ -30,7 +30,7 @@ export default function History() {
               <div className="mt-4 flex flex-wrap gap-1.5">{Object.entries(r.status || {}).map(([k, v]) => <Badge key={k} tone={{ Good: "good", Watch: "warn", Mixed: "warn", Low: "bad" }[v]}>{k} · {v}</Badge>)}</div>
               <div className="mt-5 flex flex-wrap items-center gap-2 border-t border-ink/8 pt-4">
                 <Btn to={`/runs/${r.id}`}>Report</Btn>
-                <Btn to={`/runs/${r.id}/chat`} icon="chat" variant="line">CFO chat</Btn>
+                <Btn to={`/runs/${r.id}/chat`} icon="ai" variant="line">Ask AI</Btn>
                 <a href={fileUrl(`/runs/${r.id}/pdf?download=1`)} className="rounded-lg px-2 py-1 font-mono text-[11px] text-muted hover:bg-ink/5 hover:text-ink">PDF</a>
                 <a href={fileUrl(`/runs/${r.id}/xlsx`)} className="rounded-lg px-2 py-1 font-mono text-[11px] text-muted hover:bg-ink/5 hover:text-ink">XLSX</a>
                 <span className="ml-auto text-[13px]">{r.mail?.status === "sent" ? <span className="inline-flex items-center gap-1 text-teal-ink"><Icon name="check" className="size-4" /> Emailed</span> : <span className="text-rose">{r.mail?.status}</span>}</span>

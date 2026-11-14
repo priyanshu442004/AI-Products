@@ -37,5 +37,16 @@ module.exports = {
       max_memory_restart: "500M",
       time: true,
     },
+    {
+      // FastAPI (Python) — runs from its own virtualenv, created by deploy/deploy.sh
+      name: "gst-reconciliation-api",
+      cwd: path.join(root, "apps/gst-reconciliation/backend"), // reads ./.env, writes ./data
+      script: ".venv/bin/python",
+      args: "-m uvicorn app.main:app --host 127.0.0.1 --port 8004 --workers 1",
+      interpreter: "none",
+      env: { PYTHONUNBUFFERED: "1" },
+      max_memory_restart: "700M",
+      time: true,
+    },
   ],
 };

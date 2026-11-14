@@ -47,7 +47,7 @@ router.post("/support", supportLimiter, express.json({ limit: "50kb" }), async (
     res.json({ ok: true });
   } catch (e) {
     console.error("support mail:", e.message);
-    res.status(502).json({ error: "Couldn't send your message. Please email info@analytx4t.com directly." });
+    res.status(502).json({ error: "Couldn't send your message. Please try again in a minute." });
   }
 });
 

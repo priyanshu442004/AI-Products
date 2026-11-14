@@ -1,9 +1,14 @@
 import { useEffect, useState } from "react";
 import { NavLink, Outlet, useLocation, useNavigate } from "react-router";
 import { AnimatePresence, motion } from "motion/react";
-import { Logo, EASE } from "../../components/ui";
+import { PortalMark, EASE } from "../../components/ui";
 import ProductGlyph from "../../components/ProductGlyph";
 import { products } from "../../lib/products";
+
+const GROUPS = [
+  ["Products", products.filter((p) => p.status === "live")],
+  ["Coming soon", products.filter((p) => p.status !== "live")],
+];
 import { getSession, logout } from "../../lib/auth";
 
 export default function DashboardLayout() {
@@ -53,7 +58,7 @@ export default function DashboardLayout() {
           <button onClick={() => setMobileOpen(true)} className="grid size-10 place-items-center rounded-lg hover:bg-ink/5" aria-label="Open navigation">
             <svg viewBox="0 0 20 20" className="size-5" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"><path d="M3 6h14M3 10h14M3 14h9" /></svg>
           </button>
-          <Logo className="h-7" />
+          <PortalMark light={false} />
           <span className="w-10" />
         </div>
         <main className="min-h-0 flex-1 overflow-y-auto">
@@ -73,9 +78,7 @@ function Sidebar({ collapsed, onToggle, session, onSignOut, isMobile }) {
     <aside className="relative isolate flex h-full flex-col overflow-hidden bg-ink px-3 py-5 text-paper">
       <div className="grid-bg absolute inset-0 -z-10 opacity-50" aria-hidden />
       <div className={`flex items-center ${collapsed ? "justify-center" : "justify-between px-2"}`}>
-        {collapsed
-          ? <span className="grid size-10 place-items-center rounded-xl bg-paper"><img src="/favicon.svg" alt="Analytx4t" className="size-7 rounded" /></span>
-          : <Logo className="h-8" light />}
+        <PortalMark collapsed={collapsed} />
         {!isMobile && !collapsed && <CollapseBtn onClick={onToggle} collapsed={collapsed} />}
       </div>
       {!isMobile && collapsed && <div className="mt-3 flex justify-center"><CollapseBtn onClick={onToggle} collapsed={collapsed} /></div>}
@@ -85,27 +88,26 @@ function Sidebar({ collapsed, onToggle, session, onSignOut, isMobile }) {
           {(s) => (<><SideActive isActive={s.isActive} id={activeId} /><span className="grid size-7 shrink-0 place-items-center"><ProductGlyph name="overview" /></span><SideLabel collapsed={collapsed}>Overview</SideLabel></>)}
         </NavLink>
 
-        <div className={`pb-2 pt-6 font-mono text-[10px] uppercase tracking-[0.18em] text-mist/60 ${collapsed ? "text-center" : "px-3"}`}>
-          {collapsed ? "—" : "Products"}
-        </div>
-        {products.map((p) => (
-          <NavLink key={p.slug} to={`/dashboard/${p.slug}`} viewTransition className={item} title={p.name}>
-            {(s) => (
-              <>
-                <SideActive isActive={s.isActive} id={activeId} />
-                <span className="relative grid size-7 shrink-0 place-items-center">
-                  <ProductGlyph name={p.slug} />
-                  <span className={`absolute -right-0.5 -top-0.5 size-1.5 rounded-full ${p.status === "live" ? "bg-lime" : "bg-white/25"}`} />
-                </span>
-                <SideLabel collapsed={collapsed}>
-                  <span className="flex items-center gap-2">
-                    {p.name}
-                    {p.status !== "live" && <span className="rounded bg-white/8 px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-wider text-mist">Soon</span>}
-                  </span>
-                </SideLabel>
-              </>
-            )}
-          </NavLink>
+        {GROUPS.map(([group, list]) => (
+          <div key={group} className="space-y-1">
+            <div className={`pb-2 pt-6 font-mono text-[10px] uppercase tracking-[0.18em] text-mist/60 ${collapsed ? "text-center" : "px-3"}`}>
+              {collapsed ? "—" : group}
+            </div>
+            {list.map((p) => (
+              <NavLink key={p.slug} to={`/dashboard/${p.slug}`} viewTransition className={item} title={p.name}>
+                {(s) => (
+                  <>
+                    <SideActive isActive={s.isActive} id={activeId} />
+                    <span className="relative grid size-7 shrink-0 place-items-center">
+                      <ProductGlyph name={p.slug} />
+                      <span className={`absolute -right-0.5 -top-0.5 size-1.5 rounded-full ${p.status === "live" ? "bg-lime" : "bg-white/25"}`} />
+                    </span>
+                    <SideLabel collapsed={collapsed}>{p.shortName || p.name}</SideLabel>
+                  </>
+                )}
+              </NavLink>
+            ))}
+          </div>
         ))}
       </nav>
 

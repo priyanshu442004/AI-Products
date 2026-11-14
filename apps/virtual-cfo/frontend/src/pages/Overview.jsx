@@ -17,7 +17,7 @@ export default function Overview() {
         <div className="grid-bg absolute inset-0" aria-hidden />
         <div className="relative grid gap-10 lg:grid-cols-12 lg:items-center">
           <div className="lg:col-span-7">
-            <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-mist">Virtual CFO · CFO Intelligence</p>
+            <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-mist">Financial Statement Analysis · CFO Intelligence</p>
             <h1 className="mt-4 text-[clamp(2.2rem,4.6vw,3.6rem)] font-medium leading-[1.02]">A CFO who has read <span className="text-lime">every line</span> of your statements.</h1>
             <p className="mt-4 max-w-xl text-[17px] leading-relaxed text-mist">
               Upload the Balance Sheet, P&L, Cash Flow and Ratio Analysis. Get a scored financial health report in your inbox, then ask follow-up

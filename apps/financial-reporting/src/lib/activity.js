@@ -37,7 +37,7 @@ export function useActivity() {
       setData(data);
       setError("");
     } catch {
-      setError("Couldn't load activity — the Financial Reporting server is not reachable.");
+      setError("Couldn't load activity — the Trial Balance server is not reachable.");
       setData((d) => d || { stats: { documentsProcessed: 0, filesToday: 0, avgProcessingMs: null, successRate: null, total: 0 }, uploads: [], events: [] });
     }
   }, []);

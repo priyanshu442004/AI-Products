@@ -37,16 +37,16 @@ const UploadDocument = () => {
   const removeFile = () => setFile(null);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#F8FAFC] via-blue-50/30 to-purple-50/30 flex flex-col items-center justify-center px-4 py-12">
+    <div className="min-h-screen bg-gradient-to-br from-[#f3f5f1] via-blue-50/30 to-purple-50/30 flex flex-col items-center justify-center px-4 py-12">
       {/* ---------- PAGE TITLE ---------- */}
       <div className="text-center max-w-2xl mb-12">
-        <h1 className="text-4xl lg:text-5xl font-bold text-[#0F172A] mb-4 tracking-tight">
+        <h1 className="text-4xl lg:text-5xl font-bold text-[#0b1a33] mb-4 tracking-tight">
           Upload Your Financial Document
         </h1>
-        <p className="text-lg text-[#475569]">
-          Supported formats: <span className="font-semibold text-[#0F172A]">PDF</span>,{" "}
-          <span className="font-semibold text-[#0F172A]">Excel</span>,{" "}
-          <span className="font-semibold text-[#0F172A]">CSV</span>, Bank Statements, Invoices
+        <p className="text-lg text-[#3a4659]">
+          Supported formats: <span className="font-semibold text-[#0b1a33]">PDF</span>,{" "}
+          <span className="font-semibold text-[#0b1a33]">Excel</span>,{" "}
+          <span className="font-semibold text-[#0b1a33]">CSV</span>, Bank Statements, Invoices
         </p>
       </div>
 
@@ -57,8 +57,8 @@ const UploadDocument = () => {
         onDragLeave={handleDragLeave}
         className={`w-full max-w-2xl border-2 border-dashed rounded-3xl flex flex-col items-center justify-center transition-all duration-300 p-12 ${
           dragOver
-            ? "border-[#2563EB] bg-gradient-to-br from-blue-50 to-purple-50 shadow-premium-colored-lg scale-[1.02]"
-            : "border-[#E5E7EB] bg-[#FFFFFF] hover:border-[#2563EB] hover:shadow-premium-lg"
+            ? "border-[#1d7a73] bg-gradient-to-br from-blue-50 to-purple-50 shadow-premium-colored-lg scale-[1.02]"
+            : "border-[#dde3da] bg-[#FFFFFF] hover:border-[#1d7a73] hover:shadow-premium-lg"
         }`}
       >
         {!file ? (
@@ -66,11 +66,11 @@ const UploadDocument = () => {
             <div className="mb-6 p-6 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl">
               <Upload className="w-16 h-16 text-blue-600" />
             </div>
-            <p className="text-[#0F172A] font-semibold text-lg mb-2">
+            <p className="text-[#0b1a33] font-semibold text-lg mb-2">
               Drag & Drop your document here
             </p>
-            <span className="text-[#94A3B8] text-sm my-4 font-medium">OR</span>
-            <label className="cursor-pointer bg-gradient-to-r from-[#2563EB] to-[#7C3AED] hover:from-[#1d4ed8] hover:to-[#6d28d9] text-white px-8 py-3 rounded-xl text-base font-semibold shadow-lg shadow-[#2563EB]/30 hover:shadow-xl hover:shadow-[#2563EB]/40 transform hover:scale-105 transition-all duration-300">
+            <span className="text-[#9aa7bd] text-sm my-4 font-medium">OR</span>
+            <label className="cursor-pointer bg-gradient-to-r from-[#1d7a73] to-[#4fb3ac] hover:from-[#1b315e] hover:to-[#1b315e] text-white px-8 py-3 rounded-xl text-base font-semibold shadow-lg shadow-[#1d7a73]/30 hover:shadow-xl hover:shadow-[#1d7a73]/40 transform hover:scale-105 transition-all duration-300">
               Browse Files
               <input
                 type="file"
@@ -86,8 +86,8 @@ const UploadDocument = () => {
               <FileText className="w-14 h-14 text-green-600" />
             </div>
             <div>
-              <p className="text-[#0F172A] font-bold text-xl mb-2">{file.name}</p>
-              <p className="text-[#94A3B8] text-sm font-medium">
+              <p className="text-[#0b1a33] font-bold text-xl mb-2">{file.name}</p>
+              <p className="text-[#9aa7bd] text-sm font-medium">
                 {(file.size / 1024).toFixed(2)} KB
               </p>
             </div>
@@ -119,8 +119,8 @@ const UploadDocument = () => {
           disabled={!file}
           className={`w-full py-4 rounded-xl text-white font-bold text-lg shadow-lg transition-all duration-300 ${
             file
-              ? "bg-gradient-to-r from-[#2563EB] to-[#7C3AED] hover:from-[#1d4ed8] hover:to-[#6d28d9] hover:shadow-xl hover:shadow-[#2563EB]/40 transform hover:scale-[1.02]"
-              : "bg-[#E5E7EB] cursor-not-allowed"
+              ? "bg-gradient-to-r from-[#1d7a73] to-[#4fb3ac] hover:from-[#1b315e] hover:to-[#1b315e] hover:shadow-xl hover:shadow-[#1d7a73]/40 transform hover:scale-[1.02]"
+              : "bg-[#dde3da] cursor-not-allowed"
           }`}
         >
           Start AI Processing

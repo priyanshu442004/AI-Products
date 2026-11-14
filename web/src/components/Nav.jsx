@@ -7,8 +7,6 @@ import { company } from "../lib/content";
 const links = [
   { to: "/services", label: "Services" },
   { to: "/products", label: "Products" },
-  { to: "/about", label: "About" },
-  { to: "/contact", label: "Contact" },
 ];
 
 export default function Nav() {
@@ -43,7 +41,7 @@ export default function Nav() {
             scrolled ? "border border-ink/8 bg-paper/75 shadow-[0_8px_30px_-12px_rgb(11_26_51/0.18)] backdrop-blur-xl" : "border border-transparent"
           }`}
         >
-          <Link to="/" viewTransition aria-label="Analytx4t home" className="shrink-0">
+          <Link to="/" viewTransition aria-label="Agarwal & Saxena home" className="shrink-0">
             <Logo className="h-8 sm:h-9" />
           </Link>
 
@@ -70,10 +68,10 @@ export default function Nav() {
           </nav>
 
           <div className="hidden items-center gap-2 md:flex">
-            <Link to="/signup" viewTransition className="px-4 py-2 text-[15px] text-muted transition-colors hover:text-ink">
-              Sign up
+            <Link to="/login" viewTransition className="px-4 py-2 text-[15px] text-muted transition-colors hover:text-ink">
+              Sign in
             </Link>
-            <Button to="/contact" size="sm">Start a project</Button>
+            <Button to="/signup" size="sm">Sign up</Button>
           </div>
 
           <button
@@ -99,7 +97,7 @@ export default function Nav() {
             transition={{ duration: 0.6, ease: EASE }}
           >
             <nav className="flex flex-col" aria-label="Mobile">
-              {[{ to: "/", label: "Home" }, ...links, { to: "/signup", label: "Sign up" }].map((l, i) => (
+              {[{ to: "/", label: "Home" }, ...links, { to: "/login", label: "Sign in" }, { to: "/signup", label: "Sign up" }].map((l, i) => (
                 <motion.div key={l.to} initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 + i * 0.05, duration: 0.6, ease: EASE }}>
                   <Link to={l.to} viewTransition className="flex items-baseline justify-between border-b rule py-4 font-display text-4xl tracking-tight">
                     {l.label}
@@ -108,10 +106,7 @@ export default function Nav() {
                 </motion.div>
               ))}
             </nav>
-            <div className="mt-auto space-y-1 text-sm text-muted">
-              <a href={`mailto:${company.email}`} className="block">{company.email}</a>
-              <a href={`tel:${company.phones[0].replaceAll(" ", "")}`} className="block">{company.phones[0]}</a>
-            </div>
+            <p className="mt-auto font-mono text-[11px] uppercase tracking-[0.16em] text-muted">{company.legal}</p>
           </motion.div>
         )}
       </AnimatePresence>

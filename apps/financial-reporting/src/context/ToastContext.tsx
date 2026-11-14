@@ -84,7 +84,7 @@ const ToastComponent = ({ t, onRemove }: ToastComponentProps) => {
       className="flex items-center gap-4 px-6 py-4 bg-white/80 backdrop-blur-xl border border-white/20 rounded-[28px] shadow-2xl shadow-black/10 min-w-[300px] pointer-events-auto group mb-4"
     >
       <div className="flex-shrink-0">{icons[t.type]}</div>
-      <p className="text-sm font-bold text-[#0F172A] flex-1">{t.message}</p>
+      <p className="text-sm font-bold text-[#0b1a33] flex-1">{t.message}</p>
       <button 
         onClick={onRemove}
         className="p-1 hover:bg-black/5 rounded-full transition-colors"

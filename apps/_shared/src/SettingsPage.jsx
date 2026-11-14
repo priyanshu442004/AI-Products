@@ -7,7 +7,7 @@ export default function SettingsPage({ productName, rows = [], children }) {
   return (
     <>
       <PageHeader eyebrow="Settings" title="Settings">
-        How {productName} delivers reports and the defaults it runs with. Delivery settings are managed by the Analytx4t administrator.
+        How {productName} delivers reports and the defaults it runs with. Delivery settings are managed by the Agarwal & Saxena administrator.
       </PageHeader>
       {loading && <Loading />}
       {error && <ErrorNote>{error}</ErrorNote>}
@@ -27,7 +27,7 @@ export default function SettingsPage({ productName, rows = [], children }) {
               </ul>
               <dl className="grid grid-cols-[auto_1fr] gap-x-6 gap-y-2 border-t border-ink/8 pt-4">
                 <dt className="text-muted">Subject</dt><dd>{data.subject}</dd>
-                <dt className="text-muted">Sender</dt><dd>AI Reporting System · info@analytx4t.com</dd>
+                <dt className="text-muted">Sender</dt><dd>AI Reporting System</dd>
               </dl>
             </div>
           </Section>
